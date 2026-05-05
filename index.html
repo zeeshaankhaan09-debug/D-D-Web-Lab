@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Web Lab — High‑Performance Landing Pages & Scrollytelling</title>
+    <meta name="description" content="D&D Web Lab crafts lightning-fast landing pages and interactive scrollytelling experiences. Built for speed. Designed to convert.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #D98C5B;
+            --primary-soft: #F4B183;
+            --accent: #7A9E9F;
+            --accent-soft: #A3C4C5;
+            --bg: #1A1F2B;
+            --surface: rgba(255, 255, 255, 0.04);
+            --surface-hover: rgba(255, 255, 255, 0.07);
+            --border: rgba(255, 255, 255, 0.07);
+            --border-hover: rgba(255, 255, 255, 0.15);
+            --text: #EDEAE4;
+            --text-secondary: #B9B5AC;
+            --text-muted: #8B887D;
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+            --radius: 16px;
+            --radius-lg: 22px;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            --max-width: 1150px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+            background: var(--bg);
+            color: var(--text);
+        }
+        body {
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            background: var(--bg);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .ambient {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background:
+                radial-gradient(ellipse 900px 600px at 10% 20%, rgba(217, 140, 91, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse 700px 500px at 80% 60%, rgba(122, 158, 159, 0.05) 0%, transparent 55%),
+                radial-gradient(ellipse 600px 400px at 40% 90%, rgba(217, 140, 91, 0.04) 0%, transparent 50%);
+            animation: ambientShift 20s infinite alternate ease-in-out;
+        }
+        @keyframes ambientShift {
+            0% { opacity: 0.85; }
+            100% { opacity: 1; }
+        }
+
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            z-index: 10001;
+            width: 0%;
+            box-shadow: 0 0 10px rgba(217, 140, 91, 0.6);
+            transition: width 0.1s linear;
+        }
+
+        /* NAVIGATION */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem clamp(1rem, 3vw, 2.5rem);
+            background: rgba(26, 31, 43, 0.8);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: box-shadow 0.4s;
+        }
+        .nav.scrolled {
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
+        }
+        .nav-brand {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .brand-mark {
+            width: 30px;
+            height: 30px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-soft));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #1A1F2B;
+            font-family: var(--font-sans);
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            align-items: center;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color var(--transition);
+            letter-spacing: 0.02em;
+        }
+        .nav-links a:hover {
+            color: #fff;
+        }
+        .nav-cta {
+            padding: 0.55rem 1.3rem;
+            border-radius: 50px;
+            background: var(--primary);
+            color: #1A1F2B !important;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all var(--transition);
+            box-shadow: 0 2px 16px rgba(217, 140, 91, 0.3);
+        }
+        .nav-cta:hover {
+            box-shadow: 0 4px 24px rgba(217, 140, 91, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 0.2rem;
+            transition: color var(--transition);
+        }
+        .mobile-menu-toggle:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(26, 31, 43, 0.95);
+                backdrop-filter: blur(18px);
+                border-bottom: 1px solid var(--border);
+                padding: 1.5rem 2rem;
+                gap: 1.2rem;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+        }
+
+        .section {
+            position: relative;
+            z-index: 1;
+            padding: clamp(4rem, 10vh, 7rem) clamp(1.25rem, 4vw, 2.5rem);
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        .section-heading {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+        .section-text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 650px;
+        }
+
+        .hero {
+            padding-top: clamp(8rem, 16vh, 10rem);
+            padding-bottom: clamp(3rem, 8vh, 5rem);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            max-width: 780px;
+        }
+        .hero h1 .accent {
+            background: linear-gradient(135deg, var(--primary-soft), var(--accent-soft));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 580px;
+            margin: 1.2rem 0 1.8rem;
+        }
+        .hero .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2.2rem;
+            background: var(--primary);
+            color: #1A1F2B;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all var(--transition);
+            box-shadow: 0 4px 22px rgba(217, 140, 91, 0.3);
+        }
+        .hero .btn:hover {
+            box-shadow: 0 8px 32px rgba(217, 140, 91, 0.55);
+            transform: translateY(-2px);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.3rem;
+            margin-top: 2rem;
+        }
+        .why-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.8rem 1.2rem;
+            backdrop-filter: blur(8px);
+            text-align: center;
+            transition: all var(--transition);
+        }
+        .why-card:hover {
+            border-color: var(--border-hover);
+            background: var(--surface-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+        }
+        .why-card i {
+            font-size: 1.6rem;
+            color: var(--primary-soft);
+            margin-bottom: 0.8rem;
+        }
+        .why-card .stat {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .why-card h4 {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 0.5rem 0 0.3rem;
+        }
+        .why-card p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .missing-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed var(--border);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .missing-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        .missing-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.3rem;
+        }
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2rem 1.3rem;
+            backdrop-filter: blur(8px);
+            text-align: center;
+            transition: all var(--transition);
+        }
+        .service-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            background: var(--surface-hover);
+        }
+        .service-card i {
+            font-size: 1.8rem;
+            color: var(--accent-soft);
+            margin-bottom: 1rem;
+        }
+        .service-card h4 {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+        }
+        .service-card p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .scroll-demo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+            margin: 3rem 0 2rem;
+        }
+        .scroll-step {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+        .scroll-step .text {
+            flex: 1 1 260px;
+        }
+        .scroll-step .visual {
+            flex: 1 1 260px;
+            height: 180px;
+            background: var(--surface);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.6s ease;
+        }
+        .scroll-step .visual i {
+            font-size: 2.2rem;
+            color: var(--primary);
+            transition: transform 0.5s ease;
+        }
+        .scroll-step.visible .visual i {
+            transform: scale(1.2);
+        }
+
+        .process-row {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .process-step {
+            flex: 1;
+            min-width: 160px;
+            max-width: 220px;
+            text-align: center;
+        }
+        .process-step .num {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #1A1F2B;
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.8rem;
+            box-shadow: 0 4px 18px rgba(217, 140, 91, 0.4);
+            transition: transform 0.3s ease;
+        }
+        .process-step:hover .num {
+            transform: scale(1.1);
+        }
+        .process-step h4 {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .process-step p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 1.2rem 0;
+            cursor: pointer;
+        }
+        .faq-item h4 {
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text);
+        }
+        .faq-item p {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, margin 0.4s ease;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-top: 0;
+        }
+        .faq-item.open p {
+            max-height: 150px;
+            margin-top: 0.8rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: clamp(4rem, 12vh, 7rem) clamp(1rem, 3vw, 2rem);
+        }
+        .cta-section .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 2.4rem;
+            background: var(--primary);
+            color: #1A1F2B;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all var(--transition);
+            box-shadow: 0 4px 22px rgba(217, 140, 91, 0.3);
+            margin-top: 1.5rem;
+        }
+        .cta-section .btn:hover {
+            box-shadow: 0 8px 32px rgba(217, 140, 91, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem clamp(1rem, 3vw, 2rem);
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        .footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin: 0 0.6rem;
+            transition: color var(--transition);
+            cursor: pointer;
+        }
+        .footer a:hover {
+            color: #fff;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0,0,0,0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .modal {
+            background: #1e2230;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            max-width: 600px;
+            width: 100%;
+            padding: 2rem;
+            position: relative;
+            max-height: 80vh;
+            overflow-y: auto;
+            transform: translateY(20px);
+            transition: transform 0.35s;
+        }
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+        .modal-close {
+            position: absolute;
+            top: 0.8rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .stagger>* {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .stagger.visible>*:nth-child(1){transition-delay:0s;}
+        .stagger.visible>*:nth-child(2){transition-delay:0.09s;}
+        .stagger.visible>*:nth-child(3){transition-delay:0.18s;}
+        .stagger.visible>*:nth-child(4){transition-delay:0.27s;}
+        .stagger.visible>*:nth-child(5){transition-delay:0.36s;}
+        .stagger.visible>*:nth-child(6){transition-delay:0.45s;}
+        .stagger.visible>* {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 900px) {
+            .why-grid { grid-template-columns: repeat(2,1fr); }
+            .services-grid { grid-template-columns: repeat(2,1fr); }
+        }
+        @media (max-width: 600px) {
+            .why-grid, .services-grid { grid-template-columns: 1fr; }
+            .scroll-step { flex-direction: column; }
+            .missing-card { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="ambient"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <nav class="nav" id="nav">
+        <a href="#" class="nav-brand"><span class="brand-mark">D&D</span> D&D Web Lab</a>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#why">Why</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+        </ul>
+    </nav>
+
+    <section class="section hero" id="hero">
+        <h1>We build <span class="accent">lightning fast</span> landing pages that tell a story.</h1>
+        <p>D&D Web Lab creates high‑performance static pages and immersive scrollytelling experiences — designed to convert and captivate.</p>
+        <a href="mailto:ddweblab@gmail.com?subject=New%20Project%20Inquiry&body=Hi%20D%26D%20Web%20Lab,%20I'd%20like%20to%20discuss%20a%20landing%20page..." class="btn">
+            <i class="fa-solid fa-envelope"></i> Start Your Project
+        </a>
+    </section>
+
+    <section class="section" id="why">
+        <span class="section-label">Why a Landing Page?</span>
+        <h2 class="section-heading">Speed and design aren't luxuries — they're the difference between a lead and a lost opportunity.</h2>
+        <p class="section-text">Every millisecond matters. Without a focused landing page, you're leaving attention — and revenue — on the table.</p>
+        <div class="why-grid stagger">
+            <div class="why-card"><i class="fa-solid fa-stopwatch"></i><div class="stat">0.4s</div><h4>Average Load Time</h4><p>Our static pages load faster than a blink — before visitors lose interest.</p></div>
+            <div class="why-card"><i class="fa-solid fa-arrow-trend-up"></i><div class="stat">+35%</div><h4>Conversion Lift</h4><p>Focused landing pages convert significantly better than generic homepages.</p></div>
+            <div class="why-card"><i class="fa-solid fa-mobile-screen"></i><div class="stat">100%</div><h4>Mobile Optimized</h4><p>Flawless on every device — where over half your visitors are.</p></div>
+            <div class="why-card"><i class="fa-solid fa-shield"></i><div class="stat">Zero</div><h4>Ongoing Maintenance</h4><p>No plugins or updates. Just clean code that runs forever.</p></div>
+        </div>
+
+        <div class="missing-card reveal">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <p><strong style="color:var(--text);">What if you don't have a landing page?</strong><br>
+            Without one, you're sending traffic to a scattered homepage or social profile. 
+            You lose control of the message, miss conversion tracking, and appear less professional. 
+            A dedicated landing page doubles down on a single goal — turning visitors into customers.</p>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <span class="section-label">What We Do</span>
+        <h2 class="section-heading">Crafted for performance, designed to convert.</h2>
+        <div class="services-grid stagger">
+            <div class="service-card"><i class="fa-solid fa-code"></i><h4>Static Landing Pages</h4><p>Ultra‑fast HTML/CSS with zero bloat. Host anywhere.</p></div>
+            <div class="service-card"><i class="fa-solid fa-pen-ruler"></i><h4>Conversion Design</h4><p>Layouts built on behavioral psychology to drive action.</p></div>
+            <div class="service-card"><i class="fa-solid fa-book-open"></i><h4>Scrollytelling</h4><p>Interactive narratives that engage and guide users.</p></div>
+            <div class="service-card"><i class="fa-solid fa-gauge-high"></i><h4>Performance Audit</h4><p>We analyze and fix what’s slowing your current site.</p></div>
+            <div class="service-card"><i class="fa-solid fa-rocket"></i><h4>24h Delivery</h4><p>Most projects go from brief to launch within one day.</p></div>
+            <div class="service-card"><i class="fa-solid fa-hand-holding-heart"></i><h4>Ongoing Support</h4><p>Quick replies, real humans — we’re here after launch.</p></div>
+        </div>
+
+        <div style="margin-top: 4rem;">
+            <span class="section-label">A closer look at Scrollytelling</span>
+            <h3 style="font-family:var(--font-display); font-size: 1.6rem; margin-bottom: 0.5rem;">Stories that unfold with every scroll</h3>
+            <p class="section-text">We turn passive pages into dynamic journeys. Here’s how our interactive storytelling works:</p>
+            <div class="scroll-demo">
+                <div class="scroll-step reveal">
+                    <div class="text"><h4 style="font-weight:600;">Visual Anchoring</h4><p style="color:var(--text-secondary);">Elements appear and move as you scroll, keeping attention locked.</p></div>
+                    <div class="visual"><i class="fa-solid fa-eye"></i></div>
+                </div>
+                <div class="scroll-step reveal">
+                    <div class="visual"><i class="fa-solid fa-arrow-down-wide-short"></i></div>
+                    <div class="text"><h4 style="font-weight:600;">Data Reveal</h4><p style="color:var(--text-secondary);">Stats and benefits unfold naturally, building a logical case.</p></div>
+                </div>
+                <div class="scroll-step reveal">
+                    <div class="text"><h4 style="font-weight:600;">Emotional Trigger</h4><p style="color:var(--text-secondary);">Motion and timing evoke curiosity and desire.</p></div>
+                    <div class="visual"><i class="fa-solid fa-heart-circle-bolt"></i></div>
+                </div>
+                <div class="scroll-step reveal">
+                    <div class="visual"><i class="fa-solid fa-flag-checkered"></i></div>
+                    <div class="text"><h4 style="font-weight:600;">Seamless CTA</h4><p style="color:var(--text-secondary);">The story culminates in a natural, compelling call to action.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="process">
+        <span class="section-label">How We Work</span>
+        <h2 class="section-heading">Three simple steps from idea to launch.</h2>
+        <div class="process-row">
+            <div class="process-step"><div class="num">1</div><h4>You Reach Out</h4><p>Send an email with your vision. No forms, no fuss.</p></div>
+            <div class="process-step"><div class="num">2</div><h4>We Design & Build</h4><p>Within 24 hours, your custom page is ready.</p></div>
+            <div class="process-step"><div class="num">3</div><h4>You Launch</h4><p>Receive the file. Upload anywhere and go live.</p></div>
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-heading">Quick answers to common questions.</h2>
+        <div class="faq-list">
+            <div class="faq-item"><h4>What is a static landing page? <i class="fa-solid fa-chevron-down"></i></h4><p>It’s a plain HTML/CSS page without databases or plugins — incredibly fast, secure, and maintenance‑free.</p></div>
+            <div class="faq-item"><h4>Can I edit the page later?</h4><p>Absolutely. The code is clean and well‑commented. You or any developer can easily make changes.</p></div>
+            <div class="faq-item"><h4>Do you offer refunds?</h4><p>We stand by our work. If the delivered page doesn’t meet the agreed brief, we’ll revise until it does.</p></div>
+            <div class="faq-item"><h4>How do I pay?</h4><p>We send a simple invoice via email. Bank transfer or online payment accepted.</p></div>
+        </div>
+    </section>
+
+    <section class="section cta-section" id="contact">
+        <span class="section-label">Let’s Collaborate</span>
+        <h2 class="section-heading">Ready for a faster, smarter online presence?</h2>
+        <p class="section-text" style="margin:0 auto;text-align:center;">One email, and we’ll get started. No bots, no sales pitch.</p>
+        <a href="mailto:ddweblab@gmail.com?subject=Let's%20work%20together&body=Hi%20D%26D%20Web%20Lab,%20I'm%20interested%20in..." class="btn">
+            <i class="fa-solid fa-envelope"></i> ddweblab@gmail.com
+        </a>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 D&D Web Lab &nbsp;|&nbsp;
+            <a id="privacyLink">Privacy Policy</a> &nbsp;|&nbsp;
+            <a id="termsLink">Terms of Service</a>
+        </p>
+    </footer>
+
+    <div class="modal-overlay" id="modalPrivacy">
+        <div class="modal"><button class="modal-close">&times;</button>
+            <h3 style="font-family:var(--font-display);">Privacy Policy</h3>
+            <p style="color:var(--text-secondary);">We don’t use cookies, trackers, or collect personal data. Any email you send is processed only through your email provider. Your information is never shared.</p>
+        </div>
+    </div>
+    <div class="modal-overlay" id="modalTerms">
+        <div class="modal"><button class="modal-close">&times;</button>
+            <h3 style="font-family:var(--font-display);">Terms of Service</h3>
+            <p style="color:var(--text-secondary);">All projects are delivered as agreed via email. You own the final code. Free minor revisions included. Payment terms are confirmed before work begins.</p>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const progressBar = document.getElementById('scrollProgress');
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                if(docHeight>0) progressBar.style.width = Math.min((scrollTop/docHeight)*100,100)+'%';
+            }, {passive:true});
+
+            const nav = document.getElementById('nav');
+            window.addEventListener('scroll', () => {
+                nav.classList.toggle('scrolled', window.pageYOffset > 50);
+            }, {passive:true});
+
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('mobileMenuToggle');
+            const navLinks = document.getElementById('navLinks');
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Close mobile menu when a link is clicked
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+
+            const revealEls = document.querySelectorAll('.reveal, .stagger');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+            }, {threshold:0.15, rootMargin:'0px 0px -30px 0px'});
+            revealEls.forEach(el => observer.observe(el));
+            setTimeout(() => revealEls.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if(rect.top < window.innerHeight && rect.bottom > 0) el.classList.add('visible');
+            }),200);
+
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.addEventListener('click', () => item.classList.toggle('open'));
+            });
+
+            function openModal(id) {
+                document.getElementById(id).classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeModals() {
+                document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+                document.body.style.overflow = '';
+            }
+            document.getElementById('privacyLink').addEventListener('click', (e) => { e.preventDefault(); openModal('modalPrivacy'); });
+            document.getElementById('termsLink').addEventListener('click', (e) => { e.preventDefault(); openModal('modalTerms'); });
+            document.querySelectorAll('.modal-close').forEach(b => b.addEventListener('click', closeModals));
+            document.querySelectorAll('.modal-overlay').forEach(o => o.addEventListener('click', function(e) { if(e.target===o) closeModals(); }));
+            document.addEventListener('keydown', e => { if(e.key==='Escape') closeModals(); });
+
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const id = this.getAttribute('href');
+                    if(id==='#' || !id) return;
+                    const target = document.querySelector(id);
+                    if(target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+                });
+            });
+
+            console.log('%c🧡 D&D Web Lab %c| %cReady to build something fast?',
+                'color:#F4B183;font-weight:700;font-size:15px;', 'color:#B9B5AC;', 'color:#7A9E9F;');
+        })();
+    </script>
+</body>
+</html>

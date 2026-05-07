@@ -788,7 +788,7 @@
             document.getElementById('privacyLink').addEventListener('click', (e) => { e.preventDefault(); openModal('modalPrivacy'); });
             document.getElementById('termsLink').addEventListener('click', (e) => { e.preventDefault(); openModal('modalTerms'); });
             document.querySelectorAll('.modal-close').forEach(b => b.addEventListener('click', closeModals));
-            document.querySelectorAll('.modal-overlay').forEach(o => o.addEventListener('click', function(e) { if(e.target===o) closeModals(); }));
+            document.querySelectorAll('
             document.addEventListener('keydown', e => { if(e.key==='Escape') closeModals(); });
 
             document.querySelectorAll('a[href^="#"]').forEach(link => {

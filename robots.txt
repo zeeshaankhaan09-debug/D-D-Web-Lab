@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Specifically inviting AI bots to index the entity data
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Sitemap location
+Sitemap: https://deenanddestination.site/sitemap.xml

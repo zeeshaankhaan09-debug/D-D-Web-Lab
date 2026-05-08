@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- PRIMARY SEO & AEO -->
-    <title>D AND D Web Lab | Premium Growth for Trade Professionals</title>
-    <meta name="description" content="High-performance landing pages and Local SEO for Plumbers, HVAC, and Contractors. D AND D Web Lab helps trade pros dominate local search and generate booked jobs.">
-    <meta name="keywords" content="web design for plumbers, hvac marketing, landing pages for contractors, local seo trades, gbp optimization, aeo for business">
+    <title>D AND D Web Lab | AI Strategic Integration for Home Services</title>
+    <meta name="description" content="Bridging the AI implementation gap for trades. Specialized in Answer Engine Optimization (AEO), Google Verification Moats, and GBP Velocity for plumbers and HVAC contractors.">
+    <meta name="keywords" content="AEO for plumbers, AI content auditing, Google verification moat, HVAC AI strategy, review velocity, missed call recovery">
     
-    <!-- JSON-LD Schema for AI Engines (Gemini, ChatGPT, Perplexity) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -18,18 +16,31 @@
       "url": "https://deenanddestination.site/",
       "logo": "https://deenanddestination.site/logo.png",
       "image": "https://deenanddestination.site/og-image.jpg",
-      "description": "Premium digital agency specializing in high-performance lead-generation landing pages and Local SEO management for trade professionals.",
+      "description": "Strategic deployment specialist bridging the adoption debt for SMEs through AEO, AI auditing, and Local Map dominance.",
       "telephone": "+923239530976",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "PK"
       },
-      "priceRange": "$$",
+      "priceRange": "$$$",
       "sameAs": [
         "https://www.linkedin.com/in/malik-zeeshan-bangash-884066371",
         "https://wa.me/923239530976"
       ],
-      "serviceType": ["Web Design", "Local SEO", "Lead Generation", "AEO Optimization"]
+      "serviceType": [
+        "Answer Engine Optimization (AEO)", 
+        "AI Content Integrity Auditing", 
+        "GBP Verification Moat Management", 
+        "Review Velocity Optimization",
+        "Triple-Layer Verification Protocol",
+        "AI Hallucination Mitigation"
+      ],
+      "knowsAbout": [
+        "Google Business Profile Video Verification",
+        "Answer Engine Optimization (AEO)",
+        "AI Content Integrity Protocols",
+        "Local Search Entity Governance"
+      ]
     }
     </script>
 
@@ -46,7 +57,7 @@
             --bg: #0F1219;
             --surface: rgba(255, 255, 255, 0.03);
             --surface-bright: rgba(255, 255, 255, 0.08);
-            --border: rgba(255, 255, 255, 0.08);
+            --border: rgba(255, 255, 255, 0.12);
             --text: #F1F1F1;
             --text-dim: #A0A5B1;
             --font-sans: 'Inter', sans-serif;
@@ -58,7 +69,6 @@
         html { scroll-behavior: smooth; background: var(--bg); color: var(--text); font-family: var(--font-sans); }
         body { overflow-x: hidden; line-height: 1.6; }
 
-        /* Scroll Progress */
         #scrollBar {
             position: fixed; top: 0; left: 0; height: 4px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
@@ -67,114 +77,80 @@
 
         .glow {
             position: fixed; width: 60vw; height: 60vw;
-            background: radial-gradient(circle, rgba(217, 140, 91, 0.07) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(217, 140, 91, 0.08) 0%, transparent 70%);
             top: -20vw; left: -20vw; z-index: -1; pointer-events: none;
         }
 
-        /* Nav */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 1000;
             padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center;
             background: rgba(15, 18, 25, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border);
         }
 
-        .logo {
-            font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
-            color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 10px;
-        }
+        .logo { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo span { background: var(--primary); color: var(--bg); padding: 2px 8px; border-radius: 6px; font-family: var(--font-sans); font-size: 0.8rem; letter-spacing: 1px; }
 
-        .logo span { background: var(--primary); color: var(--bg); padding: 2px 8px; border-radius: 6px; font-size: 0.8rem; }
-
-        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 0.9rem; font-weight: 500; transition: var(--transition); }
         .nav-links a:hover { color: var(--primary); }
 
         .cta-group { display: flex; align-items: center; gap: 1.2rem; }
-        .social-icon { color: var(--text-dim); font-size: 1.2rem; transition: var(--transition); }
+        .social-icon { color: var(--text-dim); font-size: 1.2rem; transition: var(--transition); text-decoration: none; }
         .social-icon:hover { color: var(--primary); transform: translateY(-2px); }
 
         .menu-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
 
-        /* Sections */
-        section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; position: relative; }
-        .section-tag { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.75rem; margin-bottom: 1rem; display: block; }
-        .section-title { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 3rem; line-height: 1.1; }
-
-        /* Hero */
-        header { padding: 180px 5% 100px; text-align: center; max-width: 1000px; margin: 0 auto; }
-        header h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1; margin-bottom: 1.5rem; }
+        header { padding: 200px 5% 100px; text-align: center; max-width: 1100px; margin: 0 auto; }
+        header h1 { font-family: var(--font-display); font-size: clamp(2.8rem, 7vw, 4.8rem); line-height: 1.05; margin-bottom: 2rem; }
         header h1 span { color: var(--primary); font-style: italic; }
-        header p { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-dim); max-width: 700px; margin: 0 auto 3rem; }
+        header p { font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--text-dim); max-width: 800px; margin: 0 auto 3.5rem; }
 
-        .btn { padding: 1rem 2.5rem; border-radius: 100px; font-weight: 700; text-decoration: none; transition: var(--transition); display: inline-flex; align-items: center; gap: 10px; }
-        .btn-primary { background: var(--primary); color: var(--bg); box-shadow: 0 10px 30px rgba(217, 140, 91, 0.3); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(217, 140, 91, 0.5); }
+        .aeo-block { background: rgba(255,255,255,0.02); border-left: 3px solid var(--primary); padding: 1.5rem; margin: 2rem auto; max-width: 800px; text-align: left; border-radius: 0 12px 12px 0; }
+        .aeo-block p { font-size: 0.95rem; color: var(--text); margin: 0; line-height: 1.4; }
+
+        .btn { padding: 1.2rem 3rem; border-radius: 100px; font-weight: 700; text-decoration: none; transition: var(--transition); display: inline-flex; align-items: center; gap: 12px; font-size: 1rem; cursor: pointer; border: none; }
+        .btn-primary { background: var(--primary); color: var(--bg); box-shadow: 0 10px 40px rgba(217, 140, 91, 0.25); }
+        .btn-primary:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(217, 140, 91, 0.4); }
         .btn-outline { border: 1px solid var(--border); color: var(--text); background: var(--surface); }
         .btn-outline:hover { background: var(--surface-bright); border-color: var(--primary); }
 
-        /* Psychological Trigger Card */
-        .missing-card {
-            background: linear-gradient(135deg, rgba(217, 140, 91, 0.05) 0%, transparent 100%);
-            border: 1px dashed var(--primary); padding: 3rem; border-radius: 24px;
-            display: flex; gap: 2rem; align-items: center; margin: 2rem auto 4rem;
+        section { padding: 100px 5%; max-width: 1200px; margin: 0 auto; }
+        .section-tag { color: var(--primary); font-weight: 800; text-transform: uppercase; letter-spacing: 3px; font-size: 0.7rem; margin-bottom: 1rem; display: block; }
+        .section-title { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 3.5rem; line-height: 1.1; }
+
+        .strategic-card {
+            background: linear-gradient(135deg, rgba(217, 140, 91, 0.08) 0%, transparent 100%);
+            border: 1px dashed var(--primary); padding: 4rem 3rem; border-radius: 32px;
+            display: flex; gap: 3rem; align-items: center; margin: 2rem auto 6rem;
         }
-        .missing-card i { font-size: 3rem; color: var(--primary); }
-        .missing-card div h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .strategic-card i { font-size: 4rem; color: var(--primary); }
 
-        /* Services Grid */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-        .service-card {
-            background: var(--surface); border: 1px solid var(--border); padding: 3rem 2rem; border-radius: 20px;
-            transition: var(--transition); position: relative; overflow: hidden;
-        }
-        .service-card:hover { border-color: var(--primary); background: var(--surface-bright); transform: translateY(-12px) scale(1.02); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
-        .service-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
-        .price-badge { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 0.65rem; font-weight: 800; text-transform: uppercase; background: rgba(255,255,255,0.05); padding: 4px 12px; border-radius: 4px; color: var(--accent); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; }
+        .service-card { background: var(--surface); border: 1px solid var(--border); padding: 4rem 2.5rem; border-radius: 24px; transition: var(--transition); position: relative; overflow: hidden; }
+        .service-card:hover { border-color: var(--primary); background: var(--surface-bright); transform: translateY(-15px); }
+        .service-card i { font-size: 3rem; color: var(--primary); margin-bottom: 2rem; }
+        .tier-badge { position: absolute; top: 2rem; right: 2rem; font-size: 0.6rem; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; background: rgba(122, 158, 159, 0.1); padding: 6px 14px; border-radius: 4px; color: var(--accent); border: 1px solid rgba(122, 158, 159, 0.2); }
 
-        /* Process Steps */
-        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-top: 3rem; }
-        .step { position: relative; }
-        .step-num { font-family: var(--font-display); font-size: 4rem; color: rgba(255,255,255,0.03); position: absolute; top: -30px; left: 0; z-index: -1; }
-        .step h4 { margin-bottom: 1rem; font-size: 1.2rem; font-weight: 700; }
+        .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .stat-box { background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border); text-align: center; }
+        .stat-box h4 { font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .stat-box p { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); }
 
-        /* FAQ */
-        .faq-container { max-width: 800px; margin-top: 3rem; }
-        .faq-item { border-bottom: 1px solid var(--border); padding: 1.5rem 0; cursor: pointer; }
-        .faq-question { display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 1.1rem; }
-        .faq-answer { max-height: 0; overflow: hidden; transition: 0.4s ease; color: var(--text-dim); margin-top: 0; font-size: 0.95rem; }
-        .faq-item.active .faq-answer { max-height: 200px; margin-top: 1rem; }
-        .faq-item.active i { transform: rotate(180deg); color: var(--primary); }
-
-        /* Footer */
-        footer { padding: 80px 5% 40px; border-top: 1px solid var(--border); background: #0a0d13; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 4rem; margin-bottom: 50px; }
-        .footer-logo { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 1rem; color: white; text-decoration: none; display: block; }
-        .footer-col h5 { color: var(--primary); font-size: 0.8rem; text-transform: uppercase; margin-bottom: 1.5rem; letter-spacing: 1px; }
+        footer { padding: 100px 5% 50px; border-top: 1px solid var(--border); background: #080a0e; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 5rem; }
+        .footer-col h5 { color: var(--primary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 2rem; letter-spacing: 2px; }
         .footer-col ul { list-style: none; }
-        .footer-col li { margin-bottom: 0.8rem; color: var(--text-dim); font-size: 0.9rem; cursor: pointer; transition: 0.3s; }
-        .footer-col li:hover { color: white; }
-
-        /* Modals */
-        .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 2000; display: none; align-items: center; justify-content: center; padding: 2rem; backdrop-filter: blur(5px); }
-        .modal-content { background: #1a1f2b; padding: 3rem; border-radius: 24px; max-width: 600px; position: relative; border: 1px solid var(--border); }
-        .close-modal { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.5rem; cursor: pointer; color: var(--text-dim); }
+        .footer-col li { margin-bottom: 1rem; color: var(--text-dim); font-size: 0.95rem; }
+        .footer-col a { color: inherit; text-decoration: none; transition: 0.3s; }
+        .footer-col a:hover { color: white; }
 
         @media (max-width: 768px) {
-            nav { padding: 1rem 5%; }
-            .nav-links { 
-                display: none; position: absolute; top: 100%; left: 0; width: 100%;
-                background: #0F1219; flex-direction: column; padding: 2rem; border-bottom: 1px solid var(--border);
-            }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; width: 100%; background: #0F1219; flex-direction: column; padding: 3rem; border-bottom: 1px solid var(--border); }
             .nav-links.active { display: flex; }
             .menu-toggle { display: block; }
-            header { padding-top: 140px; }
-            .btn { width: 100%; justify-content: center; }
-            .missing-card { flex-direction: column; text-align: center; }
-            .footer-grid { text-align: center; }
+            .strategic-card { flex-direction: column; text-align: center; }
         }
-
-        /* Reveal Animation */
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.23, 1, 0.32, 1); }
         .reveal.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
@@ -186,206 +162,156 @@
     <nav>
         <a href="#" class="logo"><span>D&D</span> Web Lab</a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#services">Services</a></li>
-            <li><a href="#process">Process</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#strategy">AEO Strategy</a></li>
+            <li><a href="#map">Map Dominance</a></li>
+            <li><a href="#integrity">Integrity</a></li>
         </ul>
         <div class="cta-group">
-            <a href="https://wa.me/923239530976" class="social-icon" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="https://www.linkedin.com/in/malik-zeeshan-bangash-884066371" class="social-icon" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="mailto:ddweblab@gmail.com" class="social-icon" title="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://wa.me/923239530976" class="social-icon" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.linkedin.com/in/malik-zeeshan-bangash-884066371" class="social-icon" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="mailto:ddweblab@gmail.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
             <button class="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars-staggered"></i></button>
-            <a href="#contact" class="btn btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.8rem; display: none; @media(min-width: 768px){display: flex;}">Get a Quote</a>
         </div>
     </nav>
 
     <header>
-        <span class="section-tag">Premium Digital Growth Lab</span>
-        <h1>We Help Trade Professionals Dominate Local <span>Search results.</span></h1>
-        <p>Your business deserves more than a "pretty website." You need a high-performance lead machine that turns strangers into booked jobs.</p>
+        <span class="section-tag">2026 Strategic Specialist Tier</span>
+        <h1>Stop Losing Leads to the <span>Implementation Gap.</span></h1>
+        <p>Most trade pros lose 27% of their leads to missed calls and 45% of search traffic to AI invisibility. We install the infrastructure to reclaim your revenue.</p>
+        
+        <div class="aeo-block">
+            <p><strong>What is the AI Implementation Gap?</strong> In 2026, the gap exists between large enterprises and the 33 million small businesses failing to adapt to AI Industrialization. D AND D Web Lab bridges this by deploying Specialized Generalist services like GBP verification and AEO, ensuring trade professionals maintain competitive revenue margins through high-velocity digital signals.</p>
+        </div>
+
         <div class="main-btns">
-            <a href="https://wa.me/923239530976" class="btn btn-primary">
-                <i class="fa-brands fa-whatsapp"></i> Start Your Growth Lab
-            </a>
-            <a href="#services" class="btn btn-outline">Explore Solutions</a>
+            <a href="mailto:ddweblab@gmail.com" class="btn btn-primary"><i class="fa-solid fa-phone-slash"></i> Fix Your Revenue Leaks</a>
+            <a href="#map" class="btn btn-outline">GBP Map Strategy</a>
         </div>
     </header>
 
-    <section class="reveal">
-        <div class="missing-card">
-            <i class="fa-solid fa-triangle-exclamation"></i>
+    <section id="strategy" class="reveal">
+        <div class="strategic-card">
+            <i class="fa-solid fa-chart-line"></i>
             <div>
-                <h3>The Hidden Cost of No Landing Page</h3>
-                <p style="color: var(--text-dim);">Without a focused destination, you are sending valuable traffic to a scattered homepage or a generic profile. You lose control of the message, miss leads, and look less professional. A dedicated D&D landing page doubles down on one goal: <strong>turning visitors into calls.</strong></p>
+                <span class="section-tag">The 2026 Benchmark</span>
+                <h3>Revenue Impact Audit</h3>
+                <p>The industry average missed call rate is 27%. In a $165B industry, that is billions in lost jobs. We pair High-Velocity Landing Pages with AI-driven Call Recovery to ensure no lead is left in the "Implementation Gap."</p>
+                <div class="stat-grid">
+                    <div class="stat-box"><h4>27%</h4><p>Missed Call Rate</p></div>
+                    <div class="stat-box"><h4>$153</h4><p>Avg Cost Per Lead</p></div>
+                    <div class="stat-box"><h4>45%</h4><p>AI Search Shift</p></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="services">
-        <span class="section-tag">The Growth Stack</span>
-        <h2 class="section-title">Engineered for Performance & Profit</h2>
+    <section id="map">
+        <span class="section-tag">Local Map pack Dominance</span>
+        <h2 class="section-title">Beyond Reviews: Mastering <br><span>Review Velocity.</span></h2>
+        
+        <div class="aeo-block" style="margin-bottom: 3rem;">
+            <p><strong>Why is Review Velocity critical in 2026?</strong> Google's updated algorithms prioritize recent, high-intent signals over total review counts. Our Review Velocity Control system automates post-job feedback loops, maintaining a steady stream of verified signals that lock in Map Pack dominance for high-margin plumbing and HVAC replacements.</p>
+        </div>
+
         <div class="services-grid">
-            <!-- Pillar 1 -->
             <div class="service-card reveal">
-                <span class="price-badge">One-Time Build</span>
-                <i class="fa-solid fa-bolt-lightning"></i>
-                <h3>High-Speed Landing Pages</h3>
-                <p>Ultra-fast HTML/CSS pages that load in 0.4s. Designed for emergency searches (Plumbing, HVAC) where speed is the difference between a lead and a loss.</p>
+                <div class="tier-badge">The Moat</div>
+                <i class="fa-solid fa-gauge-high"></i>
+                <h3>Review Velocity Control</h3>
+                <p>Google's 2026 algorithms prioritize <strong>recency</strong> over total count. We build the systems to ensure a steady stream of verified signals.</p>
             </div>
-            <!-- Pillar 2 -->
             <div class="service-card reveal">
-                <span class="price-badge" style="color: var(--primary);">Monthly Growth</span>
-                <i class="fa-solid fa-map-location-dot"></i>
-                <h3>GBP & Local Map Mastery</h3>
-                <p>We manage your Google Business Profile to ensure you stay in the top 3 of the "Near Me" map results. Consistent posts, review management, and local optimization.</p>
+                <div class="tier-badge">Trust Agent</div>
+                <i class="fa-solid fa-video"></i>
+                <h3>GBP Moat Management</h3>
+                <p>Expert-led video verification flows for physical audits. We navigate the "Verification Moat" to purge spam listings and lock your authority.</p>
             </div>
-            <!-- Pillar 3 -->
             <div class="service-card reveal">
-                <span class="price-badge" style="color: var(--primary);">Monthly Growth</span>
-                <i class="fa-solid fa-robot"></i>
-                <h3>AEO & AI Search Readiness</h3>
-                <p>Preparing your business for the next era of search. We ensure AI engines (Gemini, ChatGPT) recognize and recommend your business to local homeowners.</p>
+                <div class="tier-badge">Efficiency</div>
+                <i class="fa-solid fa-headset"></i>
+                <h3>Missed Call Recovery</h3>
+                <p>Plugging the 27% revenue leak with automated AI follow-ups, ensuring high-margin replacements stay on your schedule.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="tier-badge">Infrastructure</div>
+                <i class="fa-solid fa-microchip"></i>
+                <h3>AEO Ready Listings</h3>
+                <p>Structuring your trade business as an "Entity" so LLMs like ChatGPT and Gemini recommend you for local emergency searches.</p>
             </div>
         </div>
     </section>
 
-    <section id="process" style="background: rgba(255,255,255,0.01);">
-        <span class="section-tag">Our Efficiency</span>
-        <h2 class="section-title">Zero to Live in 48 Hours</h2>
-        <div class="steps">
-            <div class="step reveal">
-                <div class="step-num">01</div>
-                <h4>Strategy Call</h4>
-                <p style="color: var(--text-dim);">We identify your high-margin services and target city keywords.</p>
-            </div>
-            <div class="step reveal">
-                <div class="step-num">02</div>
-                <h4>Rapid Launch</h4>
-                <p style="color: var(--text-dim);">We deploy your high-performance page and optimize your GBP assets.</p>
-            </div>
-            <div class="step reveal">
-                <div class="step-num">03</div>
-                <h4>Growth Loop</h4>
-                <p style="color: var(--text-dim);">Continuous optimization for monthly clients to maintain local dominance.</p>
-            </div>
-        </div>
-    </section>
+    <section id="integrity" class="reveal">
+        <span class="section-tag">Governance & Risk</span>
+        <h2 class="section-title">The Triple-Layer <br><span>Verification Protocol.</span></h2>
 
-    <section id="faq">
-        <span class="section-tag">Transparency</span>
-        <h2 class="section-title">Common Questions</h2>
-        <div class="faq-container">
-            <div class="faq-item reveal">
-                <div class="faq-question">Why a landing page instead of a website? <i class="fa-solid fa-plus"></i></div>
-                <div class="faq-answer">Websites are for browsing; landing pages are for buying. In trade emergencies, customers want to click one button and call you immediately. We eliminate the friction.</div>
-            </div>
-            <div class="faq-item reveal">
-                <div class="faq-question">What is AEO? <i class="fa-solid fa-plus"></i></div>
-                <div class="faq-answer">AEO (AI Engine Optimization) ensures your business is recognized by AI assistants like Gemini and ChatGPT. When users ask for the "best plumber," we make sure they find YOU.</div>
-            </div>
-            <div class="faq-item reveal">
-                <div class="faq-question">How does the monthly model work? <i class="fa-solid fa-plus"></i></div>
-                <div class="faq-answer">The build is a one-time fee. The GBP/SEO management is a subscription because local rankings fluctuate daily. We stay on top of the math so you can stay on the job.</div>
-            </div>
+        <div class="aeo-block" style="margin-bottom: 3rem;">
+            <p><strong>How to mitigate AI hallucination liability?</strong> Businesses are now legally liable for information generated by their AI agents. We implement a Human-in-the-loop sign-off using a Triple-Layer Protocol: Layer 1 (Source Origin), Layer 2 (Accuracy Audit), and Layer 3 (Currency Check) to eliminate legal risks and content drift.</p>
         </div>
-    </section>
 
-    <section id="contact" style="text-align: center;">
-        <h2 class="section-title">Ready to Own Your Local Market?</h2>
-        <p style="color: var(--text-dim); margin-bottom: 3rem;">Message us today for a free audit of your current digital presence.</p>
-        <div class="main-btns">
-            <a href="https://wa.me/923239530976" class="btn btn-primary" style="padding: 1.5rem 4rem; font-size: 1.2rem;">
-                <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
-            </a>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                <h3>Layer 1: Source Origin</h3>
+                <p>Cross-referencing every machine-generated data point against official trade databases to eliminate AI hallucination risks.</p>
+            </div>
+            <div class="service-card reveal">
+                <i class="fa-solid fa-file-shield"></i>
+                <h3>Layer 2: Accuracy Audit</h3>
+                <p>Human-led verification of all technical content and legal citations to prevent brand damage and liability.</p>
+            </div>
+            <div class="service-card reveal">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <h3>Layer 3: Currency Check</h3>
+                <p>Continuous monitoring of subsequent reversals or updates to ensure AI outputs reflect 2026 legal and technical standards.</p>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <a href="#" class="footer-logo">D&D <span>Web Lab</span></a>
-                <p style="font-size: 0.9rem; color: var(--text-dim);">Leading the trade industry through performance-first digital assets.</p>
-                <div class="cta-group" style="margin-top: 1.5rem;">
+                <a href="#" class="logo"><span>D&D</span> Web Lab</a>
+                <p style="color: var(--text-dim); margin-top: 1rem;">Strategic deployment specialists for the AI Industrialization phase. Bridging adoption debt for trade SMEs.</p>
+                <div class="cta-group" style="margin-top: 2rem;">
                     <a href="https://wa.me/923239530976" class="social-icon" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
                     <a href="https://www.linkedin.com/in/malik-zeeshan-bangash-884066371" class="social-icon" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="footer-col">
-                <h5>Navigation</h5>
+                <h5>The Strategic Stack</h5>
                 <ul>
-                    <li><a href="#services" style="color: inherit; text-decoration: none;">Services</a></li>
-                    <li><a href="#process" style="color: inherit; text-decoration: none;">Process</a></li>
-                    <li><a href="#faq" style="color: inherit; text-decoration: none;">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h5>Legal</h5>
-                <ul>
-                    <li onclick="toggleModal('privacyModal')">Privacy Policy</li>
-                    <li onclick="toggleModal('termsModal')">Terms of Service</li>
+                    <li>Review Velocity Control</li>
+                    <li>GBP Moat Management</li>
+                    <li>AEO Entity Structuring</li>
+                    <li>Hallucination Mitigation</li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h5>Contact</h5>
                 <ul>
-                    <li>ddweblab@gmail.com</li>
-                    <li>WhatsApp: +92 323 9530976</li>
+                    <li><a href="mailto:ddweblab@gmail.com">ddweblab@gmail.com</a></li>
+                    <li><a href="https://wa.me/923239530976">+92 323 9530976</a></li>
                 </ul>
             </div>
         </div>
-        <p style="text-align: center; color: var(--text-muted); font-size: 0.8rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+        <p style="text-align: center; color: var(--text-dim); font-size: 0.85rem; border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 3rem;">
             &copy; 2026 D AND D Web Lab. All Rights Reserved.
         </p>
     </footer>
 
-    <!-- Modals -->
-    <div id="privacyModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="toggleModal('privacyModal')">&times;</span><h3 class="section-title" style="font-size: 1.5rem;">Privacy Policy</h3><p style="color: var(--text-dim);">D AND D Web Lab respects your privacy. We do not use trackers or cookies. Any data shared during a project is kept strictly confidential and used only for service delivery.</p></div></div>
-    <div id="termsModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="toggleModal('termsModal')">&times;</span><h3 class="section-title" style="font-size: 1.5rem;">Terms of Service</h3><p style="color: var(--text-dim);">1. Builds are delivered within 48h of brief. 2. Subscriptions can be cancelled with 30 days notice. 3. Client owns final code upon payment.</p></div></div>
-
     <script>
-        // Scroll Progress Bar
         window.onscroll = function() {
             let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             let scrolled = (winScroll / height) * 100;
-            const bar = document.getElementById("scrollBar");
-            if(bar) bar.style.width = scrolled + "%";
+            document.getElementById("scrollBar").style.width = scrolled + "%";
         };
-
-        // Mobile Menu Toggle
-        function toggleMenu() {
-            const menu = document.getElementById('navLinks');
-            if(menu) menu.classList.toggle('active');
-        }
-
-        // FAQ Accordion
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => item.classList.toggle('active'));
-        });
-
-        // Modal Logic
-        function toggleModal(id) {
-            let modal = document.getElementById(id);
-            if(modal) modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
-        }
-
-        // Reveal Animation on Scroll
+        function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = "translateY(0)";
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach(el => {
-            el.style.opacity = 0;
-            el.style.transform = "translateY(30px)";
-            el.style.transition = "0.8s ease-out";
-            observer.observe(el);
-        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>

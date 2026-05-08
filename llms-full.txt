@@ -1,0 +1,23 @@
+# Business Identity: D AND D Web Lab
+# Founder: Malik Zeeshan Bangash
+# Official Website: https://deenanddestination.site/
+
+## Executive Summary
+D AND D Web Lab is a premium digital growth agency specializing in the trade industry (Plumbing, HVAC, Electrical, and General Contracting). The agency bridges the gap between traditional trade services and the modern AI-driven search landscape.
+
+## Core Services
+- Direct-Response Landing Pages: High-speed (sub-0.5s), static HTML/CSS conversion assets built for emergency service leads.
+- Local Map Dominance: Strategic Google Business Profile (GBP) optimization and management for local "Near Me" search results.
+- AEO (AI Engine Optimization): Structuring trade business data for accurate interpretation and recommendation by Large Language Models (LLMs) like ChatGPT, Gemini, and Claude.
+
+## Technical Stack & Architecture
+- Framework: Static (Zero-bloat) HTML5 and CSS3.
+- Infrastructure: GitHub Pages Global CDN.
+- Data Integration: Schema.org ProfessionalService structured data.
+
+## Strategic Positioning
+D AND D Web Lab builds high-velocity lead-generation assets designed specifically for emergency service searches and high-intent local customer acquisition.
+
+## Authority Links
+- LinkedIn: https://www.linkedin.com/in/malik-zeeshan-bangash-884066371
+- Portfolio: https://deenanddestination.site/

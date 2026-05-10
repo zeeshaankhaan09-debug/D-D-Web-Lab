@@ -1,626 +1,732 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D and D web lab - AI Automation Agency</title>
     
-    <title>D&D Web Lab | High-Converting Landing Pages for Local Businesses</title>
-    <meta name="title" content="D&D Web Lab | High-Converting Landing Pages for Local Businesses">
-    <meta name="description" content="Turn your Google Maps traffic into phone calls with sub-1-second, mobile-first landing pages. Perfect for local services, starting at just $100. Get your free audit.">
-    <meta name="keywords" content="landing page design, local SEO, Google Business Profile optimization, fast websites, local business marketing, high-converting websites, web design for contractors">
-    <meta name="author" content="Malik Zeeshan Bangash">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://deenanddestination.site/">
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons via CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://deenanddestination.site/">
-    <meta property="og:title" content="D&D Web Lab | High-Converting Landing Pages">
-    <meta property="og:description" content="Turn your Google Maps traffic into phone calls with sub-1-second, mobile-first landing pages. Starting at just $100.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200">
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://deenanddestination.site/">
-    <meta property="twitter:title" content="D&D Web Lab | High-Converting Landing Pages">
-    <meta property="twitter:description" content="Turn your Google Maps traffic into phone calls with sub-1-second, mobile-first landing pages. Starting at just $100.">
-    <meta property="twitter:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200">
-    
-    <link rel="icon" type="image/png" href="logo.png">
-    <link rel="apple-touch-icon" href="logo.png">
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "ProfessionalService",
-          "@id": "https://deenanddestination.site/#organization",
-          "name": "D&D Web Lab",
-          "url": "https://deenanddestination.site/",
-          "logo": "https://deenanddestination.site/logo.png",
-          "image": "https://deenanddestination.site/logo.png",
-          "description": "We specialize in building lightning-fast, highly optimized landing pages that convert Google Maps traffic into incoming phone calls for local service businesses.",
-          "telephone": "+923239530976",
-          "email": "ddweblab@gmail.com",
-          "address": {
-            "@type": "PostalAddress",
-            "addressCountry": "PK"
-          },
-          "priceRange": "$100",
-          "sameAs": [
-            "https://www.linkedin.com/in/malik-zeeshan-bangash-884066371"
-          ],
-          "offers": {
-            "@type": "Offer",
-            "name": "$100 High-Converting Landing Page",
-            "price": "100.00",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
-          }
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Why is page load speed so important for local businesses?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Over 50% of mobile users abandon a website if it takes more than 3 seconds to load. For local businesses relying on Google Maps, a sub-1-second load time ensures customers stay on the page and call you instead of a competitor."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What is included in the $100 landing page?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "You get a custom-coded, ultra-fast, mobile-first landing page with a sticky call button, fast hosting setup, schema markup for SEO, and a guide on linking it properly to your Google Business Profile."
-              }
+    <!-- Tailwind config for custom tweaks (if any) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
             }
-          ]
         }
-      ]
-    }
     </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <style>
-        /* CSS Variables for Premium Dark Theme */
-        :root {
-            --primary: #FF6B35;       /* Energetic Orange */
-            --primary-glow: rgba(255, 107, 53, 0.4);
-            --primary-hover: #E85D2C;
-            --bg-base: #0A0D14;       /* Deep Slate/Black */
-            --bg-surface: #121620;    /* Slightly lighter surface */
-            --bg-glass: rgba(18, 22, 32, 0.7);
-            --border-light: rgba(255, 255, 255, 0.08);
-            --border-glow: rgba(255, 107, 53, 0.2);
-            --text-main: #F8FAFC;
-            --text-muted: #94A3B8;
-            --font-head: 'Outfit', sans-serif;
-            --font-body: 'Inter', sans-serif;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Reset & Base Styles */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: 90px; }
-        body { 
-            background-color: var(--bg-base); 
-            color: var(--text-main); 
-            font-family: var(--font-body); 
-            line-height: 1.6; 
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 800; line-height: 1.2; }
-        p { margin-bottom: 1rem; color: var(--text-muted); }
-        a { text-decoration: none; color: inherit; transition: var(--transition); }
-
-        /* Utility Classes */
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 5%; }
-        .text-gradient { 
-            background: linear-gradient(135deg, #FFF 0%, #FF6B35 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .highlight { color: var(--primary); }
-        
-        /* Navigation (Glassmorphism) */
-        nav {
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-            background: var(--bg-glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-light);
-            padding: 1rem 0;
-        }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; }
-        .logo {
-            font-family: var(--font-head); font-size: 1.5rem; font-weight: 900;
-            display: flex; align-items: center; gap: 0.5rem; letter-spacing: -0.5px; z-index: 1001;
-        }
-        .logo img { height: 32px; width: auto; border-radius: 4px; }
-        
-        /* Main Menu Links */
-        .nav-menu { display: flex; gap: 2rem; align-items: center; margin: 0 2rem; }
-        .nav-menu a { font-weight: 500; font-size: 0.95rem; color: var(--text-muted); }
-        .nav-menu a:hover { color: var(--primary); }
-
-        /* Social and CTA Actions */
-        .nav-actions { display: flex; gap: 1rem; align-items: center; z-index: 1001; }
-        .social-link {
-            display: flex; align-items: center; justify-content: center;
-            width: 40px; height: 40px; border-radius: 50%;
-            background: var(--bg-surface); border: 1px solid var(--border-light);
-            color: var(--text-muted); font-size: 1.1rem;
-        }
-        .social-link:hover {
-            background: var(--primary); color: #fff; border-color: var(--primary);
-            transform: translateY(-3px); box-shadow: 0 5px 15px var(--primary-glow);
-        }
-
-        /* Mobile Hamburger Button */
-        .mobile-menu-btn {
-            display: none; background: transparent; border: none;
-            color: var(--text-main); font-size: 1.8rem; cursor: pointer;
-            transition: var(--transition);
-        }
-        .mobile-menu-btn:hover { color: var(--primary); }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-            padding: 1rem 2rem; border-radius: 50px; font-family: var(--font-head);
-            font-weight: 700; font-size: 1.05rem; cursor: pointer; border: none;
-            transition: var(--transition); letter-spacing: 0.5px;
-        }
-        .btn-primary {
-            background: var(--primary); color: #fff;
-            box-shadow: 0 4px 15px var(--primary-glow);
-        }
-        .btn-primary:hover {
-            background: var(--primary-hover); transform: translateY(-3px);
-            box-shadow: 0 8px 25px var(--primary-glow);
-        }
-        .btn-outline {
-            background: transparent; color: var(--text-main);
-            border: 1px solid var(--border-light);
-        }
-        .btn-outline:hover {
-            border-color: var(--primary); color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 180px 0 100px; position: relative; overflow: hidden;
-        }
-        .hero::before {
-            content: ''; position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
-            width: 600px; height: 600px; background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-            opacity: 0.3; z-index: -1; border-radius: 50%;
-        }
-        .hero-content { text-align: center; max-width: 900px; margin: 0 auto; }
-        .hero h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); margin-bottom: 1.5rem; letter-spacing: -1px; }
-        .hero p { font-size: clamp(1.1rem, 2vw, 1.25rem); max-width: 700px; margin: 0 auto 2.5rem; }
-        
-        .hero-stats-box {
-            background: var(--bg-surface); border: 1px solid var(--border-light);
-            border-radius: 16px; padding: 1.5rem; max-width: 600px; margin: 3rem auto 0;
-            display: flex; align-items: center; gap: 1rem; text-align: left;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .hero-stats-box i { font-size: 2rem; color: var(--primary); }
-        .hero-stats-box p { margin: 0; font-size: 0.95rem; color: var(--text-main); }
-
-        /* General Section Styles */
-        section { padding: 100px 0; position: relative; }
-        .section-header { text-align: center; margin-bottom: 4rem; }
-        .section-header h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
-        .section-header p { max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
-
-        /* Grids */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
-
-        /* Problem Section Image */
-        .img-wrapper { position: relative; border-radius: 20px; padding: 1rem; background: var(--bg-surface); border: 1px solid var(--border-light); }
-        .img-wrapper img { width: 100%; border-radius: 12px; display: block; }
-        .img-wrapper::after {
-            content: ''; position: absolute; inset: 0; border-radius: 20px;
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05); pointer-events: none;
-        }
-
-        /* Stats List */
-        .stat-list { display: flex; flex-direction: column; gap: 2rem; }
-        .stat-item { display: flex; gap: 1.2rem; }
-        .stat-icon {
-            flex-shrink: 0; width: 50px; height: 50px; border-radius: 12px;
-            background: rgba(255, 107, 53, 0.1); color: var(--primary);
-            display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
-        }
-        .stat-item h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-main); }
-        .stat-item p { font-size: 0.95rem; margin: 0; }
-
-        /* Services Cards */
-        .card {
-            background: var(--bg-surface); border: 1px solid var(--border-light);
-            border-radius: 20px; padding: 2.5rem 1.5rem; text-align: center;
-            transition: var(--transition); position: relative; overflow: hidden;
-            display: flex; flex-direction: column; align-items: center;
-        }
-        .card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-            background: var(--primary); transform: scaleX(0); transform-origin: left;
-            transition: var(--transition);
-        }
-        .card:hover { transform: translateY(-10px); border-color: var(--border-glow); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
-        .card:hover::before { transform: scaleX(1); }
-        .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
-        .card h3 { font-size: 1.3rem; margin-bottom: 1rem; }
-        .card p { font-size: 0.95rem; margin: 0; }
-
-        /* Process Steps */
-        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; position: relative; }
-        .step-card {
-            background: var(--bg-base); border: 1px solid var(--border-light);
-            padding: 2.5rem 2rem; border-radius: 20px; text-align: left; position: relative;
-        }
-        .step-num {
-            font-family: var(--font-head); font-size: 4rem; font-weight: 900;
-            color: rgba(255, 255, 255, 0.03); position: absolute; top: 1rem; right: 1.5rem;
-            line-height: 1; pointer-events: none;
-        }
-        .step-card h3 { font-size: 1.3rem; margin-bottom: 0.8rem; color: var(--primary); }
-
-        /* Pricing Section */
-        .pricing-box {
-            background: linear-gradient(180deg, var(--bg-surface) 0%, rgba(255,107,53,0.05) 100%);
-            border: 1px solid var(--border-light); border-radius: 24px;
-            padding: 4rem 2rem; text-align: center; max-width: 800px; margin: 0 auto;
-            position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-        .price-tag { font-family: var(--font-head); font-size: 5rem; font-weight: 900; color: #fff; line-height: 1; margin: 1.5rem 0; }
-        .price-tag span { font-size: 1.5rem; color: var(--text-muted); font-weight: 500; vertical-align: middle; }
-        .pricing-features { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 2rem auto; max-width: 600px; }
-        .pricing-features span { display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; color: var(--text-main); }
-        .pricing-features i { color: var(--primary); }
-
-        /* FAQ Section */
-        .faq-item {
-            background: var(--bg-surface); border: 1px solid var(--border-light);
-            border-radius: 12px; margin-bottom: 1rem; padding: 1.5rem;
-            max-width: 800px; margin-left: auto; margin-right: auto;
-        }
-        .faq-item h3 { font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; }
-        .faq-item p { margin: 0; font-size: 0.95rem; }
-
-        /* Testimonial */
-        .testimonial {
-            text-align: center; max-width: 700px; margin: 0 auto;
-            font-family: var(--font-head); font-size: 1.25rem; font-style: italic;
-            color: #fff; position: relative; padding: 2rem;
-        }
-        .testimonial::before {
-            content: '\201C'; position: absolute; top: -1rem; left: 50%; transform: translateX(-50%);
-            font-size: 6rem; color: rgba(255,107,53,0.1); line-height: 1; z-index: -1; font-family: sans-serif;
-        }
-        .author { font-family: var(--font-body); font-style: normal; font-size: 1rem; color: var(--primary); margin-top: 1.5rem; font-weight: 600; }
-
-        /* Footer */
-        footer {
-            background: #05060A; padding: 4rem 0 2rem; border-top: 1px solid var(--border-light); text-align: center;
-        }
-        .footer-logo { font-family: var(--font-head); font-size: 1.5rem; font-weight: 900; color: #fff; margin-bottom: 1.5rem; display: inline-flex; align-items: center; gap: 10px; }
-        .footer-logo img { width: 30px; border-radius: 4px; }
-        .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; }
-        .footer-links a { display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted); font-weight: 500; }
-        .footer-links a:hover { color: var(--primary); }
-        .copyright { font-size: 0.9rem; color: #475569; }
-
-        /* Sticky Mobile CTA */
-        .mobile-cta {
-            display: none; position: fixed; bottom: 0; left: 0; width: 100%;
-            background: var(--bg-glass); backdrop-filter: blur(10px);
-            padding: 1rem; border-top: 1px solid var(--border-light); z-index: 100;
-            text-align: center;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-up { animation: fadeInUp 0.8s ease forwards; }
-
-        /* Responsive Breakpoints & Mobile Menu CSS */
-        @media (max-width: 1000px) {
-            .mobile-menu-btn { display: block; }
-            .nav-actions .btn-primary { display: none; } 
-            
-            .nav-menu {
-                position: fixed; top: 0; left: -100%; width: 100%; height: 100vh;
-                background: var(--bg-base); flex-direction: column; justify-content: center;
-                align-items: center; gap: 2.5rem; margin: 0;
-                transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 1000;
-            }
-            .nav-menu.active { left: 0; } 
-            .nav-menu a { font-size: 1.5rem; font-family: var(--font-head); font-weight: 600; color: #fff; }
-        }
-        
-        @media (max-width: 900px) {
-            .grid-2 { grid-template-columns: 1fr; gap: 3rem; }
-            .hero-stats-box { flex-direction: column; text-align: center; }
-        }
-        
-        @media (max-width: 600px) {
-            .nav-actions .social-link { display: none; } 
-            .mobile-cta { display: block; } 
-            body { padding-bottom: 80px; } 
-            .price-tag { font-size: 4rem; }
-            .hero h1 { font-size: 2.5rem; }
+        /* Smooth transition for FAQ accordion */
+        .faq-content {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen bg-slate-50 font-sans text-slate-900 overflow-x-hidden selection:bg-blue-100">
 
-    <nav>
-        <div class="container nav-container">
-            <a href="#" class="logo">
-                <img src="logo.png" alt="D&D Web Lab Icon" onerror="this.style.display='none'">
-                D&D <span class="highlight">Web Lab</span>
-            </a>
-            
-            <div class="nav-menu" id="nav-menu">
-                <a href="#problem" class="nav-link">The Problem</a>
-                <a href="#solution" class="nav-link">Features</a>
-                <a href="#process" class="nav-link">Process</a>
-                <a href="#pricing" class="nav-link">Pricing</a>
-                <a href="#faq" class="nav-link">FAQ</a>
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-blue-600 tracking-tight flex items-center gap-2">
+                        <i data-lucide="database" class="w-8 h-8"></i>
+                        D and D web lab
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#services" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Services</a>
+                    <a href="#how-it-works" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">How it Works</a>
+                    <a href="#pricing" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Pricing</a>
+                    <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 border-transparent text-white bg-blue-600 hover:bg-blue-700 shadow-sm hover:shadow">
+                        Book Consultation
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none">
+                        <span id="menu-icon-wrapper">
+                            <i data-lucide="menu" class="w-6 h-6"></i>
+                        </span>
+                    </button>
+                </div>
             </div>
-
-            <div class="nav-actions">
-                <a href="mailto:ddweblab@gmail.com" class="social-link" title="Email Us"><i class="fa-solid fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/malik-zeeshan-bangash-884066371" target="_blank" class="social-link" title="Connect on LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://wa.me/923239530976" target="_blank" class="btn btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.95rem;">
-                    <i class="fa-brands fa-whatsapp"></i> Let's Talk
-                </a>
-                
-                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
+        </div>
+        <!-- Mobile menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1">
+            <a href="#services" class="mobile-link block px-3 py-2 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">Services</a>
+            <a href="#how-it-works" class="mobile-link block px-3 py-2 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">How it Works</a>
+            <a href="#pricing" class="mobile-link block px-3 py-2 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">Pricing</a>
+            <a href="#contact" class="mobile-link block px-3 py-2 text-base font-medium text-blue-600 hover:bg-slate-50 rounded-md">Contact Us</a>
         </div>
     </nav>
 
-    <main>
-        <header class="hero animate-up">
-            <div class="container hero-content">
-                <h1>Your Google Maps Traffic Is Useless <span class="text-gradient">If Nobody Calls.</span></h1>
-                <p>We hand-code ultra-fast, mobile-first landing pages that turn local map views into ringing phones. Built for contractors and local services, starting at just $100.</p>
-                
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="https://wa.me/923239530976" class="btn btn-primary"><i class="fa-solid fa-bolt"></i> Get Your Free Audit</a>
-                    <a href="#pricing" class="btn btn-outline">View Pricing</a>
+    <!-- SECTION 1 - HERO -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-slate-50"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+                    Automate Customer Communication with <span class="text-blue-600">AI</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-600 font-medium mb-8">
+                    Never Miss Another Customer Inquiry.
+                </p>
+                <p class="text-lg text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+                    We help modern businesses automate customer communication through intelligent website chatbots, WhatsApp automation, email workflows, and seamless lead capture systems. Enjoy faster replies, improved lead generation, and 24/7 customer interaction—all while reducing your team's manual workload.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
+                    <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-lg transition-all duration-200 text-white bg-blue-600 hover:bg-blue-700 shadow-sm hover:shadow">
+                        Book Free Consultation
+                    </a>
+                    <a href="https://wa.me/923239530976" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-lg transition-all duration-200 text-white bg-green-600 hover:bg-green-700 shadow-sm hover:shadow gap-2">
+                        <i data-lucide="phone" class="w-5 h-5"></i> Chat on WhatsApp
+                    </a>
                 </div>
-
-                <div class="hero-stats-box">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    <p><strong>The 3-Second Rule:</strong> If your current site takes more than 3 seconds to load on a mobile phone, you are losing 50% of your potential customers to a competitor. We fix this in 24 hours.</p>
-                </div>
+                <p class="text-sm font-medium text-slate-500 flex items-center justify-center gap-4 flex-wrap">
+                    <span>Seamless integration with:</span>
+                    <span class="flex items-center gap-1.5"><i data-lucide="bot" class="w-4 h-4"></i> Websites</span>
+                    <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-4 h-4"></i> WhatsApp</span>
+                    <span class="flex items-center gap-1.5"><i data-lucide="mail" class="w-4 h-4"></i> Email Workflows</span>
+                </p>
             </div>
-        </header>
+        </div>
+    </section>
 
-        <section id="problem" style="background: var(--bg-surface);">
-            <div class="container grid-2">
-                <div class="img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Data Analytics Showing Lost Conversions">
+    <!-- SECTION 2 - SERVICES -->
+    <section id="services" class="py-20 lg:py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Automated Communication Systems</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto">Professional, custom-built AI solutions designed specifically to capture leads and handle routine customer interactions.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
+                        <i data-lucide="bot" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">AI Website Chatbots</h3>
+                    <p class="text-slate-600 mb-6 line-clamp-3">Custom AI chatbots for business websites that answer customer questions instantly, explain services, and guide visitors toward booking consultations.</p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Instant 24/7 replies</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> FAQ automation</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Trained on your business knowledge</li>
+                    </ul>
                 </div>
-                <div>
-                    <h2 style="font-family: var(--font-head); font-size: 2.5rem; margin-bottom: 1.5rem;">Why Your Current Site is a <span class="highlight">Leaky Bucket</span></h2>
-                    <p style="font-size: 1.1rem; margin-bottom: 2.5rem;">Small local businesses lose up to 70% of potential leads because of outdated web practices. Here is what's killing your conversions:</p>
-                    
-                    <div class="stat-list">
-                        <article class="stat-item">
-                            <div class="stat-icon"><i class="fa-solid fa-house-crack"></i></div>
-                            <div>
-                                <h3>It's Just a Homepage</h3>
-                                <p>77% of local businesses send ad/maps traffic to a homepage with confusing navigation and no clear call-to-action. Users get frustrated and leave.</p>
-                            </div>
-                        </article>
-                        <article class="stat-item">
-                            <div class="stat-icon"><i class="fa-solid fa-hourglass-half"></i></div>
-                            <div>
-                                <h3>Bloated & Slow</h3>
-                                <p>Heavy WordPress themes and page builders take 5+ seconds to load on mobile data. Speed is the #1 conversion killer.</p>
-                            </div>
-                        </article>
-                        <article class="stat-item">
-                            <div class="stat-icon"><i class="fa-solid fa-robot"></i></div>
-                            <div>
-                                <h3>Invisible to AI</h3>
-                                <p>Without modern semantic code and Schema markup, Google's AI Overviews won't cite your business, even if you have great reviews.</p>
-                            </div>
-                        </article>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600 mb-6">
+                        <i data-lucide="message-square" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">WhatsApp Automation</h3>
+                    <p class="text-slate-600 mb-6 line-clamp-3">AI-powered WhatsApp systems that automatically respond to inquiries, qualify leads, and improve communication speed instantly.</p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Automated replies & engagement</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Interactive business info sharing</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Consultation booking support</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 mb-6">
+                        <i data-lucide="mail" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Email Response Automation</h3>
+                    <p class="text-slate-600 mb-6 line-clamp-3">Smart systems that help businesses respond to customer emails professionally and quickly using intelligent, context-aware AI replies.</p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> AI-assisted response drafting</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Pricing & service explanations</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Rapid customer inquiry handling</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow md:col-span-2 lg:col-span-1">
+                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-6">
+                        <i data-lucide="database" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Lead Capture & Qualification</h3>
+                    <p class="text-slate-600 mb-6 line-clamp-3">Systems designed to capture customer information automatically and organize highly qualified leads for immediate business follow-up.</p>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Name & email collection</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Custom requirement forms</li>
+                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Centralized lead storage</li>
+                    </ul>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow md:col-span-2 lg:col-span-2">
+                    <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center text-teal-600 mb-6">
+                        <i data-lucide="calendar" class="w-6 h-6"></i>
+                    </div>
+                    <div class="md:w-2/3">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Appointment Booking Automation</h3>
+                        <p class="text-slate-600 mb-6">Seamless integration of modern appointment scheduling systems that allow your customers to easily book consultations, meetings, or services online directly through chat or email.</p>
+                        <ul class="space-y-2 text-sm text-slate-600 grid sm:grid-cols-2">
+                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Automated booking flow</li>
+                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Smart calendar integration</li>
+                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> 24/7 consultation scheduling</li>
+                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Increased conversion rates</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="solution">
-            <div class="container">
-                <div class="section-header">
-                    <h2>How We Turn <span class="highlight">Views Into Calls</span></h2>
-                    <p>We don't build generic websites. We build conversion machines equipped with the latest technical SEO and AI-readiness.</p>
-                </div>
+    <!-- SECTION 3 - HOW IT WORKS -->
+    <section id="how-it-works" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">How The Process Works</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto">A seamless, automated workflow designed to capture every opportunity without adding to your daily workload.</p>
+            </div>
+            
+            <div class="relative max-w-4xl mx-auto">
+                <div class="hidden md:block absolute left-8 top-8 bottom-8 w-0.5 bg-blue-100"></div>
                 
-                <div class="grid-4">
-                    <article class="card">
-                        <i class="fa-solid fa-gauge-high"></i>
-                        <h3>Sub-1-Second Load</h3>
-                        <p>We write pure HTML/CSS. Your page opens instantly on mobile networks, capturing the user before they bounce.</p>
-                    </article>
-                    <article class="card">
-                        <i class="fa-solid fa-hand-pointer"></i>
-                        <h3>Sticky CTA Buttons</h3>
-                        <p>Your phone number is always visible on the screen. No hunting, no scrolling—just instant connection.</p>
-                    </article>
-                    <article class="card">
-                        <i class="fa-solid fa-sitemap"></i>
-                        <h3>Technical SEO Setup</h3>
-                        <p>We include a properly configured <strong>sitemap.xml</strong> and <strong>robots.txt</strong> file so Google bots can index your site faster than competitors.</p>
-                    </article>
-                    <article class="card">
-                        <i class="fa-solid fa-microchip"></i>
-                        <h3>AI-Search Ready</h3>
-                        <p>We set up a unique <strong>llms-full.txt</strong> file, ensuring bots like ChatGPT and Google AI can easily read, understand, and recommend your business.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="process" style="background: var(--bg-surface);">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Live in <span class="highlight">24 Hours</span></h2>
-                    <p>No endless meetings or confusing technical jargon. A seamless 3-step process.</p>
-                </div>
-                <div class="process-grid">
-                    <article class="step-card">
-                        <div class="step-num">1</div>
-                        <h3>Free Loom Audit</h3>
-                        <p>Message us. We'll analyze your current Google Business Profile or site and record a quick video showing exactly where you're losing money.</p>
-                    </article>
-                    <article class="step-card">
-                        <div class="step-num">2</div>
-                        <h3>Hand-Coded Build</h3>
-                        <p>Once approved, we build your custom, mobile-first landing page optimized for speed and conversions. We handle the technical heavy lifting.</p>
-                    </article>
-                    <article class="step-card">
-                        <div class="step-num">3</div>
-                        <h3>Launch & Connect</h3>
-                        <p>We put the page live and show you exactly how to attach it to your Google Maps listing to start capturing leads immediately.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="pricing">
-            <div class="container">
-                <div class="pricing-box">
-                    <div class="badge" style="display: inline-block; background: var(--primary); color: #fff; padding: 0.5rem 1rem; border-radius: 50px; font-family: var(--font-head); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;">Limited Portfolio Offer</div>
-                    <h2 style="font-size: 2.5rem; margin: 1rem 0;">The High-Speed Landing Page</h2>
-                    <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">We are rapidly building our agency portfolio. Get a $1,000+ custom-coded, conversion-optimized landing page at our cost.</p>
-                    
-                    <div class="price-tag">$100 <span>/ one-time</span></div>
-                    
-                    <div class="pricing-features">
-                        <span><i class="fa-solid fa-check"></i> Sub-1-second mobile load</span>
-                        <span><i class="fa-solid fa-check"></i> Sticky Call-to-Action</span>
-                        <span><i class="fa-solid fa-check"></i> Schema.org SEO setup</span>
-                        <span><i class="fa-solid fa-check"></i> Robots.txt & Sitemap included</span>
-                        <span><i class="fa-solid fa-check"></i> AI-Ready (llms.txt file)</span>
-                        <span><i class="fa-solid fa-check"></i> 24-hour turnaround</span>
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="relative flex items-start gap-6 md:gap-8 group">
+                        <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-xl z-10 relative group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">1</div>
+                        <div class="pt-3">
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Step 1: Inquiry Received</h3>
+                            <p class="text-slate-600 leading-relaxed">A customer reaches out via your website, WhatsApp, or email at any time of day or night.</p>
+                        </div>
                     </div>
+                    <!-- Step 2 -->
+                    <div class="relative flex items-start gap-6 md:gap-8 group">
+                        <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-xl z-10 relative group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">2</div>
+                        <div class="pt-3">
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Step 2: Instant Response</h3>
+                            <p class="text-slate-600 leading-relaxed">The custom AI system instantly acknowledges the message, answering questions accurately based on your business data.</p>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="relative flex items-start gap-6 md:gap-8 group">
+                        <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-xl z-10 relative group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">3</div>
+                        <div class="pt-3">
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Step 3: Information Collection</h3>
+                            <p class="text-slate-600 leading-relaxed">The AI naturally guides the conversation to collect the customer's name, contact info, and specific requirements.</p>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="relative flex items-start gap-6 md:gap-8 group">
+                        <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-xl z-10 relative group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">4</div>
+                        <div class="pt-3">
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Step 4: Qualification & Booking</h3>
+                            <p class="text-slate-600 leading-relaxed">Qualified leads are directed toward your appointment calendar or forwarded directly to your sales team.</p>
+                        </div>
+                    </div>
+                    <!-- Step 5 -->
+                    <div class="relative flex items-start gap-6 md:gap-8 group">
+                        <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-xl z-10 relative group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">5</div>
+                        <div class="pt-3">
+                            <h3 class="text-xl font-bold text-slate-900 mb-2">Step 5: Business Growth</h3>
+                            <p class="text-slate-600 leading-relaxed">You save hours of manual typing and follow-ups while drastically improving your customer response speed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
-                        <a href="https://wa.me/923239530976" target="_blank" class="btn btn-primary" style="padding: 1.2rem 3rem; font-size: 1.2rem;">
-                            <i class="fa-brands fa-whatsapp"></i> Claim Offer on WhatsApp
+    <!-- SECTION 4 - BENEFITS -->
+    <section id="benefits" class="py-20 lg:py-28 bg-blue-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Why Automate Your Business?</h2>
+                <p class="text-lg text-blue-100 max-w-2xl mx-auto">Tangible business results designed to increase revenue and decrease operational stress.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
+                    <i data-lucide="clock" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
+                    <h4 class="font-semibold text-lg">24/7 Customer Communication</h4>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
+                    <i data-lucide="zap" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
+                    <h4 class="font-semibold text-lg">Instant Response Times</h4>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
+                    <i data-lucide="trending-up" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
+                    <h4 class="font-semibold text-lg">Reduced Missed Leads</h4>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
+                    <i data-lucide="shield" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
+                    <h4 class="font-semibold text-lg">Professional Interactions</h4>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
+                    <i data-lucide="database" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
+                    <h4 class="font-semibold text-lg">Automated Lead Collection</h4>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
+                    <i data-lucide="users" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
+                    <h4 class="font-semibold text-lg">Improved Customer Experience</h4>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
+                    <i data-lucide="building-2" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
+                    <h4 class="font-semibold text-lg">Increased Business Efficiency</h4>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
+                    <i data-lucide="briefcase" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
+                    <h4 class="font-semibold text-lg">Scalable Communication Systems</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5 - INDUSTRIES -->
+    <section id="industries" class="py-20 lg:py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Who We Help</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto">Our automation systems are perfect for businesses that rely on customer inquiries and lead generation.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">Dental Clinics</span>
+                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">Real Estate Agencies</span>
+                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">Law Firms</span>
+                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">Roofing Companies</span>
+                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">HVAC Businesses</span>
+                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">Ecommerce Stores</span>
+                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">Local Service Businesses</span>
+                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">Consultants & Agencies</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6 - WHY CHOOSE US -->
+    <section id="why-us" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Why Choose D and D web lab?</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto">We don't just sell technology. We build robust communication systems designed to solve real business problems.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="flex gap-4 items-start">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">Customized AI Solutions</h4>
+                        <p class="text-sm text-slate-600">Built specifically around your data and rules.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">Business-Focused</h4>
+                        <p class="text-sm text-slate-600">Designed to capture leads, not just chat.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">Fast Setup Process</h4>
+                        <p class="text-sm text-slate-600">Deployed quickly with minimal disruption.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">Reliable Support</h4>
+                        <p class="text-sm text-slate-600">Ongoing maintenance and optimization.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">Easy Integration</h4>
+                        <p class="text-sm text-slate-600">Works seamlessly with your existing tools.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">Scalable Systems</h4>
+                        <p class="text-sm text-slate-600">Grows perfectly as your business volume grows.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">Practical Workflows</h4>
+                        <p class="text-sm text-slate-600">No tech jargon, just results-driven systems.</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 items-start">
+                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-900 mb-1">Modern Technology</h4>
+                        <p class="text-sm text-slate-600">Powered by reliable, top-tier AI models.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7 - PRICING -->
+    <section id="pricing" class="py-20 lg:py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Transparent, Value-Based Pricing</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto">Pricing depends on your business requirements and automation complexity. Find a package that fits your goals.</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-center">
+                <!-- Starter Plan -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Starter Plan</h3>
+                    <p class="text-slate-500 mb-6">Perfect for establishing automated responses.</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-slate-700"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> AI Website Chatbot setup</li>
+                        <li class="flex items-center gap-3 text-slate-700"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> Basic Lead Capture</li>
+                        <li class="flex items-center gap-3 text-slate-700"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> Website Integration</li>
+                        <li class="flex items-center gap-3 text-slate-700"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> Monthly Support</li>
+                    </ul>
+                    <a href="#contact" class="w-full inline-flex items-center justify-center px-6 py-3 border border-slate-300 text-base font-medium rounded-lg transition-all duration-200 text-slate-700 bg-white hover:bg-slate-50">Request Quote</a>
+                </div>
+
+                <!-- Professional Plan -->
+                <div class="bg-blue-600 border-2 border-blue-600 rounded-2xl p-8 shadow-xl relative lg:-mt-8 lg:-mb-8 z-10 transform scale-100 lg:scale-105">
+                    <div class="absolute top-0 right-8 transform -translate-y-1/2">
+                        <span class="bg-gradient-to-r from-orange-400 to-yellow-400 text-white text-xs font-bold px-3 py-1 uppercase tracking-wider rounded-full shadow-sm">Most Popular</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">Professional Plan</h3>
+                    <p class="text-blue-100 mb-6">Complete omni-channel automation system.</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-white"><i data-lucide="check-circle" class="w-5 h-5 text-blue-200"></i> Everything in Starter</li>
+                        <li class="flex items-center gap-3 text-white"><i data-lucide="check-circle" class="w-5 h-5 text-blue-200"></i> WhatsApp Automation</li>
+                        <li class="flex items-center gap-3 text-white"><i data-lucide="check-circle" class="w-5 h-5 text-blue-200"></i> Email Automation Integration</li>
+                        <li class="flex items-center gap-3 text-white"><i data-lucide="check-circle" class="w-5 h-5 text-blue-200"></i> Appointment Booking flow</li>
+                        <li class="flex items-center gap-3 text-white"><i data-lucide="check-circle" class="w-5 h-5 text-blue-200"></i> Advanced Lead Handling</li>
+                    </ul>
+                    <a href="#contact" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg transition-all duration-200 bg-white text-blue-600 hover:bg-slate-50 shadow-md">Book Strategy Call</a>
+                </div>
+
+                <!-- Custom Plan -->
+                <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Custom Plan</h3>
+                    <p class="text-slate-500 mb-6">Enterprise workflows for complex needs.</p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-slate-700"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> Tailored Automation Systems</li>
+                        <li class="flex items-center gap-3 text-slate-700"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> Custom Internal Workflows</li>
+                        <li class="flex items-center gap-3 text-slate-700"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> Multi-Platform Integrations</li>
+                        <li class="flex items-center gap-3 text-slate-700"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> Scalable Data Solutions</li>
+                    </ul>
+                    <a href="#contact" class="w-full inline-flex items-center justify-center px-6 py-3 border border-slate-300 text-base font-medium rounded-lg transition-all duration-200 text-slate-700 bg-white hover:bg-slate-50">Discuss Requirements</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8 - APPOINTMENT BOOKING -->
+    <section class="py-24 bg-slate-900 text-center px-4">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Communication?</h2>
+            <p class="text-lg text-slate-300 mb-10 leading-relaxed">
+                Schedule a free consultation call. We will discuss your current business workflows, perform a custom strategy analysis, and recommend the exact automation solutions you need to save time and capture more leads.
+            </p>
+            <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-lg transition-all duration-200 text-white bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-900/50">
+                Book Your Free Consultation <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 9 - FAQ -->
+    <section id="faq" class="py-20 lg:py-28 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto">Clear answers about how our AI automation agency operates and integrates with your business.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="0">
+                        <span class="font-semibold text-slate-900 pr-8">How does the AI chatbot work?</span>
+                        <i id="faq-icon-0" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq-content-0" class="faq-content px-6">
+                        <p class="text-slate-600 pb-4">Our custom AI chatbots are trained specifically on your business information. They interact with your website visitors in real-time, answering questions, providing service details, and collecting lead information just like a human sales assistant.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="1">
+                        <span class="font-semibold text-slate-900 pr-8">Can the chatbot be trained on my business?</span>
+                        <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq-content-1" class="faq-content px-6">
+                        <p class="text-slate-600 pb-4">Absolutely. We input your FAQs, service descriptions, pricing (if public), and brand voice into the system so it represents your business accurately and professionally.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="2">
+                        <span class="font-semibold text-slate-900 pr-8">Can it connect with WhatsApp?</span>
+                        <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq-content-2" class="faq-content px-6">
+                        <p class="text-slate-600 pb-4">Yes. We can deploy AI automation directly to your WhatsApp Business number, allowing you to handle hundreds of customer inquiries instantly without manual typing.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="3">
+                        <span class="font-semibold text-slate-900 pr-8">Can AI answer emails automatically?</span>
+                        <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq-content-3" class="faq-content px-6">
+                        <p class="text-slate-600 pb-4">Yes. Our systems can draft professional responses to customer inquiries, handle common support questions, and tee up complex issues for your human team to review.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="4">
+                        <span class="font-semibold text-slate-900 pr-8">Is setup included?</span>
+                        <i id="faq-icon-4" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq-content-4" class="faq-content px-6">
+                        <p class="text-slate-600 pb-4">Yes, all our plans include complete setup, testing, and deployment. We handle the technical heavy lifting so you can focus on your business.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="5">
+                        <span class="font-semibold text-slate-900 pr-8">How long does deployment take?</span>
+                        <i id="faq-icon-5" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq-content-5" class="faq-content px-6">
+                        <p class="text-slate-600 pb-4">Depending on the complexity and the platforms involved, a standard automation system is typically built, tested, and deployed within 1 to 2 weeks.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="6">
+                        <span class="font-semibold text-slate-900 pr-8">Can the system collect leads?</span>
+                        <i id="faq-icon-6" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq-content-6" class="faq-content px-6">
+                        <p class="text-slate-600 pb-4">Lead capture is a primary feature. The AI automatically asks for names, emails, phone numbers, and specific requirements before passing that information directly to your CRM or email.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
+                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="7">
+                        <span class="font-semibold text-slate-900 pr-8">Is ongoing support provided?</span>
+                        <i id="faq-icon-7" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
+                    </button>
+                    <div id="faq-content-7" class="faq-content px-6">
+                        <p class="text-slate-600 pb-4">Yes, our packages include ongoing support, system monitoring, and periodic optimization to ensure your AI continues to perform perfectly as your business grows.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10 - CONTACT -->
+    <section id="contact" class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Get in Touch</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto">Let's build a communication system that works for you 24/7.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- WhatsApp Contact -->
+                <a href="https://wa.me/923239530976" target="_blank" rel="noopener noreferrer" class="bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-600 group-hover:text-white transition-colors">
+                        <i data-lucide="phone" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">WhatsApp</h3>
+                    <p class="text-slate-500 mb-4">Fastest way to reach out for quick queries.</p>
+                    <span class="text-green-600 font-semibold flex items-center justify-center gap-2">Message Us <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                </a>
+
+                <!-- Email Contact -->
+                <a href="mailto:ddweblab@gmail.com" class="bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <i data-lucide="mail" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Email</h3>
+                    <p class="text-slate-500 mb-4">Send us your project details or questions.</p>
+                    <span class="text-blue-600 font-semibold flex items-center justify-center gap-2">ddweblab@gmail.com</span>
+                </a>
+
+                <!-- LinkedIn Contact -->
+                <a href="https://www.linkedin.com/in/malik-zeeshan-bangash-884066371" target="_blank" rel="noopener noreferrer" class="bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
+                    <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                        <i data-lucide="linkedin" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">LinkedIn</h3>
+                    <p class="text-slate-500 mb-4">Connect with Malik Zeeshan Bangash.</p>
+                    <span class="text-indigo-600 font-semibold flex items-center justify-center gap-2">View Profile <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+                </a>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="https://wa.me/923239530976" target="_blank" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-lg transition-all duration-200 text-white bg-slate-900 hover:bg-slate-800 shadow-sm hover:shadow">
+                    Book Consultation Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 11 - FOOTER -->
+    <footer class="bg-slate-950 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <a href="#" class="text-2xl font-bold text-white tracking-tight flex items-center gap-2 mb-4">
+                        <i data-lucide="database" class="w-8 h-8 text-blue-500"></i>
+                        D and D web lab
+                    </a>
+                    <p class="text-slate-400 max-w-sm leading-relaxed mb-6">
+                        Professional AI automation agency helping businesses capture more leads, speed up response times, and reduce manual customer support operations.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://wa.me/923239530976" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors p-2 bg-slate-800 rounded-full hover:bg-green-600">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                        </a>
+                        <a href="mailto:ddweblab@gmail.com" class="text-slate-400 hover:text-white transition-colors p-2 bg-slate-800 rounded-full hover:bg-blue-600">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/malik-zeeshan-bangash-884066371" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors p-2 bg-slate-800 rounded-full hover:bg-indigo-600">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
                         </a>
                     </div>
-                    <p style="margin-top: 1.5rem; font-size: 0.9rem;">🔒 No hidden fees. No monthly retainers. You own the code.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-slate-400 hover:text-blue-400 transition-colors">Our Services</a></li>
+                        <li><a href="#how-it-works" class="text-slate-400 hover:text-blue-400 transition-colors">How it Works</a></li>
+                        <li><a href="#pricing" class="text-slate-400 hover:text-blue-400 transition-colors">Pricing Plans</a></li>
+                        <li><a href="#faq" class="text-slate-400 hover:text-blue-400 transition-colors">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-3">
+                        <li><a href="https://wa.me/923239530976" class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> WhatsApp Us</a></li>
+                        <li><a href="mailto:ddweblab@gmail.com" class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> Email Us</a></li>
+                        <li><a href="#contact" class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4"></i> Book Call</a></li>
+                    </ul>
                 </div>
             </div>
-        </section>
-
-        <section id="testimonial" style="padding-top: 0;">
-            <div class="container">
-                <div class="testimonial">
-                    "I didn't think a $100 page could actually bring me calls, but two days after hooking it up to my Google Maps profile, I booked a $1,200 HVAC repair job. Best ROI I've spent on marketing."
-                    <div class="author">— Mike R., Local HVAC Owner</div>
-                </div>
+            
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-sm" id="copyright-text"></p>
+                <p class="text-slate-500 text-sm">
+                    Automating Business Operations
+                </p>
             </div>
-        </section>
-
-        <section id="faq" style="background: var(--bg-surface); padding-bottom: 80px;">
-            <div class="container">
-                <div class="section-header" style="margin-bottom: 3rem;">
-                    <h2>Common <span class="highlight">Questions</span></h2>
-                </div>
-                <div class="faq-item">
-                    <h3>Do I need to pay monthly hosting fees?</h3>
-                    <p>We can help you set up completely free, blazing-fast hosting using platforms like Netlify or GitHub Pages, so you only pay for your domain name yearly.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Why do you include technical files like Robots.txt and LLMs.txt?</h3>
-                    <p>We don't just make the site look pretty. A sitemap and robots.txt file tell Google exactly how to rank your site quickly. The LLMs.txt file is a modern necessity that helps new AI bots (like ChatGPT) read your site data so you get recommended when people ask AI for local services.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>Why not just use WordPress or Wix?</h3>
-                    <p>Page builders inject thousands of lines of bloated code, slowing down your site. Slow sites lose mobile customers. Hand-coded HTML ensures maximum speed and maximum conversions.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-logo">
-                <img src="logo.png" alt="Logo" onerror="this.style.display='none'"> 
-                D&D <span class="highlight">Web Lab</span>
-            </div>
-            <div class="footer-links">
-                <a href="mailto:ddweblab@gmail.com"><i class="fa-solid fa-envelope"></i> ddweblab@gmail.com</a>
-                <a href="https://wa.me/923239530976"><i class="fa-brands fa-whatsapp"></i> +92 323 9530976</a>
-                <a href="https://www.linkedin.com/in/malik-zeeshan-bangash-884066371" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-            </div>
-            <p class="copyright">&copy; 2026 D&D Web Lab. High-converting digital assets for local businesses. All rights reserved.</p>
         </div>
     </footer>
 
-    <div class="mobile-cta">
-        <a href="https://wa.me/923239530976" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 1rem;">
-            <i class="fa-brands fa-whatsapp"></i> Start Free Audit
-        </a>
+    <!-- CHATBOT INTEGRATION PLACEHOLDER -->
+    <div id="custom-chatbot-root" class="fixed bottom-6 right-6 z-50">
+        <!-- Visual Mockup - Remove or comment out this internal button when you inject your real script -->
+        <button class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-2xl transition-transform hover:scale-110 flex items-center justify-center animate-bounce group" title="Placeholder for Custom Chatbot">
+            <i data-lucide="message-square" class="w-7 h-7"></i>
+            <span class="absolute right-full mr-4 bg-white text-slate-800 text-sm font-semibold px-3 py-1.5 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                Chatbot Setup Ready
+            </span>
+        </button>
+        <!-- End Visual Mockup -->
     </div>
 
+    <!-- Scripts for Interactivity -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const navMenu = document.getElementById('nav-menu');
-            const navLinks = document.querySelectorAll('.nav-link');
-            const icon = mobileBtn.querySelector('i');
+        // Initialize Icons
+        lucide.createIcons();
 
-            // Toggle menu on button click
-            mobileBtn.addEventListener('click', () => {
-                navMenu.classList.toggle('active');
-                
-                // Swap icon between hamburger (bars) and close (xmark)
-                if(navMenu.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-xmark');
-                    document.body.style.overflow = 'hidden';
+        // Set Copyright Year dynamically
+        document.getElementById('copyright-text').innerHTML = `&copy; ${new Date().getFullYear()} D and D web lab. All rights reserved.`;
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIconWrapper = document.getElementById('menu-icon-wrapper');
+        let isMenuOpen = false;
+
+        function closeMenu() {
+            isMenuOpen = false;
+            mobileMenu.classList.add('hidden');
+            menuIconWrapper.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+            lucide.createIcons();
+        }
+
+        menuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuIconWrapper.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIconWrapper.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+            }
+            lucide.createIcons();
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // FAQ Accordion Logic
+        const faqButtons = document.querySelectorAll('.faq-btn');
+        let activeFAQ = null;
+
+        faqButtons.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-target');
+                const content = document.getElementById(`faq-content-${targetId}`);
+                const icon = document.getElementById(`faq-icon-${targetId}`);
+
+                if (activeFAQ === targetId) {
+                    // Close currently open
+                    content.style.maxHeight = null;
+                    content.style.opacity = '0';
+                    icon.classList.remove('rotate-180', 'text-blue-600');
+                    activeFAQ = null;
                 } else {
-                    icon.classList.remove('fa-xmark');
-                    icon.classList.add('fa-bars');
-                    document.body.style.overflow = 'auto';
+                    // Close previous if exists
+                    if (activeFAQ !== null) {
+                        const prevContent = document.getElementById(`faq-content-${activeFAQ}`);
+                        const prevIcon = document.getElementById(`faq-icon-${activeFAQ}`);
+                        prevContent.style.maxHeight = null;
+                        prevContent.style.opacity = '0';
+                        prevIcon.classList.remove('rotate-180', 'text-blue-600');
+                    }
+                    // Open new
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    content.style.opacity = '1';
+                    icon.classList.add('rotate-180', 'text-blue-600');
+                    activeFAQ = targetId;
                 }
-            });
-
-            // Close menu when a link is clicked
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('active');
-                    icon.classList.remove('fa-xmark');
-                    icon.classList.add('fa-bars');
-                    document.body.style.overflow = 'auto';
-                });
             });
         });
     </script>

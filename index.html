@@ -3,716 +3,489 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D and D web lab - AI Automation Agency</title>
+    <title>D and D web lab - AI Lead Generation Agency</title>
     
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Lucide Icons via CDN -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Tailwind config for custom tweaks (if any) -->
+    <!-- Custom Tailwind Configuration for smooth animations -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     <style>
-        /* Smooth transition for FAQ accordion */
+        /* Smooth opening for FAQs */
         .faq-content {
             transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
             max-height: 0;
             opacity: 0;
-            overflow: hidden;
+        }
+        .faq-content.open {
+            max-height: 500px;
+            opacity: 1;
         }
     </style>
 </head>
-<body class="min-h-screen bg-slate-50 font-sans text-slate-900 overflow-x-hidden selection:bg-blue-100">
+<body class="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-900">
 
-    <!-- NAVBAR -->
-    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-200">
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-2xl font-bold text-blue-600 tracking-tight flex items-center gap-2">
-                        <i data-lucide="database" class="w-8 h-8"></i>
-                        D and D web lab
-                    </a>
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <span class="text-2xl font-extrabold tracking-tight text-slate-900">
+                        D and D <span class="text-blue-600 font-light">web lab</span>
+                    </span>
                 </div>
-                <div class="hidden md:flex space-x-8 items-center">
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
                     <a href="#services" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Services</a>
                     <a href="#how-it-works" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">How it Works</a>
                     <a href="#pricing" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Pricing</a>
-                    <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 border-transparent text-white bg-blue-600 hover:bg-blue-700 shadow-sm hover:shadow">
+                    <a href="#faqs" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">FAQs</a>
+                    <a href="https://wa.me/message/QQ4BLPNIUMCIO1" target="_blank" rel="noopener noreferrer" class="px-6 py-2.5 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-all shadow-md hover:shadow-lg">
                         Book Consultation
                     </a>
                 </div>
+
+                <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none">
-                        <span id="menu-icon-wrapper">
-                            <i data-lucide="menu" class="w-6 h-6"></i>
-                        </span>
+                        <!-- Menu Icon -->
+                        <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="block"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                        <!-- Close Icon -->
+                        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                     </button>
                 </div>
             </div>
         </div>
-        <!-- Mobile menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1">
-            <a href="#services" class="mobile-link block px-3 py-2 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">Services</a>
-            <a href="#how-it-works" class="mobile-link block px-3 py-2 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">How it Works</a>
-            <a href="#pricing" class="mobile-link block px-3 py-2 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">Pricing</a>
-            <a href="#contact" class="mobile-link block px-3 py-2 text-base font-medium text-blue-600 hover:bg-slate-50 rounded-md">Contact Us</a>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 px-4 pt-2 pb-6 space-y-2 shadow-xl absolute w-full">
+            <a href="#services" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">Services</a>
+            <a href="#how-it-works" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">How it Works</a>
+            <a href="#pricing" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">Pricing</a>
+            <a href="#faqs" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">FAQs</a>
+            <a href="https://wa.me/message/QQ4BLPNIUMCIO1" target="_blank" rel="noopener noreferrer" class="block w-full text-center mt-4 px-6 py-3 rounded-lg bg-blue-600 text-white text-base font-semibold hover:bg-blue-700 transition-colors">
+                Book Consultation
+            </a>
         </div>
     </nav>
 
-    <!-- SECTION 1 - HERO -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-slate-50"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="text-center max-w-4xl mx-auto">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
-                    Automate Customer Communication with <span class="text-blue-600">AI</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-slate-600 font-medium mb-8">
-                    Never Miss Another Customer Inquiry.
-                </p>
-                <p class="text-lg text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-                    We help modern businesses automate customer communication through intelligent website chatbots, WhatsApp automation, email workflows, and seamless lead capture systems. Enjoy faster replies, improved lead generation, and 24/7 customer interaction—all while reducing your team's manual workload.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
-                    <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-lg transition-all duration-200 text-white bg-blue-600 hover:bg-blue-700 shadow-sm hover:shadow">
-                        Book Free Consultation
-                    </a>
-                    <a href="https://wa.me/923239530976" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-lg transition-all duration-200 text-white bg-green-600 hover:bg-green-700 shadow-sm hover:shadow gap-2">
-                        <i data-lucide="phone" class="w-5 h-5"></i> Chat on WhatsApp
-                    </a>
-                </div>
-                <p class="text-sm font-medium text-slate-500 flex items-center justify-center gap-4 flex-wrap">
-                    <span>Seamless integration with:</span>
-                    <span class="flex items-center gap-1.5"><i data-lucide="bot" class="w-4 h-4"></i> Websites</span>
-                    <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-4 h-4"></i> WhatsApp</span>
-                    <span class="flex items-center gap-1.5"><i data-lucide="mail" class="w-4 h-4"></i> Email Workflows</span>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 2 - SERVICES -->
-    <section id="services" class="py-20 lg:py-28 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Automated Communication Systems</h2>
-                <p class="text-lg text-slate-600 max-w-3xl mx-auto">Professional, custom-built AI solutions designed specifically to capture leads and handle routine customer interactions.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-6">
-                        <i data-lucide="bot" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">AI Website Chatbots</h3>
-                    <p class="text-slate-600 mb-6 line-clamp-3">Custom AI chatbots for business websites that answer customer questions instantly, explain services, and guide visitors toward booking consultations.</p>
-                    <ul class="space-y-2 text-sm text-slate-600">
-                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Instant 24/7 replies</li>
-                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> FAQ automation</li>
-                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Trained on your business knowledge</li>
-                    </ul>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center text-green-600 mb-6">
-                        <i data-lucide="message-square" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">WhatsApp Automation</h3>
-                    <p class="text-slate-600 mb-6 line-clamp-3">AI-powered WhatsApp systems that automatically respond to inquiries, qualify leads, and improve communication speed instantly.</p>
-                    <ul class="space-y-2 text-sm text-slate-600">
-                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Automated replies & engagement</li>
-                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Interactive business info sharing</li>
-                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Consultation booking support</li>
-                    </ul>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 mb-6">
-                        <i data-lucide="mail" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Email Response Automation</h3>
-                    <p class="text-slate-600 mb-6 line-clamp-3">Smart systems that help businesses respond to customer emails professionally and quickly using intelligent, context-aware AI replies.</p>
-                    <ul class="space-y-2 text-sm text-slate-600">
-                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> AI-assisted response drafting</li>
-                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Pricing & service explanations</li>
-                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Rapid customer inquiry handling</li>
-                    </ul>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow md:col-span-2 lg:col-span-1">
-                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center text-orange-600 mb-6">
-                        <i data-lucide="database" class="w-6 h-6"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">Lead Capture & Qualification</h3>
-                    <p class="text-slate-600 mb-6 line-clamp-3">Systems designed to capture customer information automatically and organize highly qualified leads for immediate business follow-up.</p>
-                    <ul class="space-y-2 text-sm text-slate-600">
-                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Name & email collection</li>
-                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Custom requirement forms</li>
-                        <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Centralized lead storage</li>
-                    </ul>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow md:col-span-2 lg:col-span-2">
-                    <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center text-teal-600 mb-6">
-                        <i data-lucide="calendar" class="w-6 h-6"></i>
-                    </div>
-                    <div class="md:w-2/3">
-                        <h3 class="text-xl font-bold text-slate-900 mb-3">Appointment Booking Automation</h3>
-                        <p class="text-slate-600 mb-6">Seamless integration of modern appointment scheduling systems that allow your customers to easily book consultations, meetings, or services online directly through chat or email.</p>
-                        <ul class="space-y-2 text-sm text-slate-600 grid sm:grid-cols-2">
-                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Automated booking flow</li>
-                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Smart calendar integration</li>
-                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> 24/7 consultation scheduling</li>
-                            <li class="flex items-start gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0"></i> Increased conversion rates</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 3 - HOW IT WORKS -->
-    <section id="how-it-works" class="py-20 lg:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">How The Process Works</h2>
-                <p class="text-lg text-slate-600 max-w-3xl mx-auto">A seamless, automated workflow designed to capture every opportunity without adding to your daily workload.</p>
-            </div>
-            
-            <div class="relative max-w-4xl mx-auto">
-                <div class="hidden md:block absolute left-8 top-8 bottom-8 w-0.5 bg-blue-100"></div>
-                
-                <div class="space-y-12">
-                    <!-- Step 1 -->
-                    <div class="relative flex items-start gap-6 md:gap-8 group">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-xl z-10 relative group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">1</div>
-                        <div class="pt-3">
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Step 1: Inquiry Received</h3>
-                            <p class="text-slate-600 leading-relaxed">A customer reaches out via your website, WhatsApp, or email at any time of day or night.</p>
-                        </div>
-                    </div>
-                    <!-- Step 2 -->
-                    <div class="relative flex items-start gap-6 md:gap-8 group">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-xl z-10 relative group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">2</div>
-                        <div class="pt-3">
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Step 2: Instant Response</h3>
-                            <p class="text-slate-600 leading-relaxed">The custom AI system instantly acknowledges the message, answering questions accurately based on your business data.</p>
-                        </div>
-                    </div>
-                    <!-- Step 3 -->
-                    <div class="relative flex items-start gap-6 md:gap-8 group">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-xl z-10 relative group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">3</div>
-                        <div class="pt-3">
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Step 3: Information Collection</h3>
-                            <p class="text-slate-600 leading-relaxed">The AI naturally guides the conversation to collect the customer's name, contact info, and specific requirements.</p>
-                        </div>
-                    </div>
-                    <!-- Step 4 -->
-                    <div class="relative flex items-start gap-6 md:gap-8 group">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-xl z-10 relative group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">4</div>
-                        <div class="pt-3">
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Step 4: Qualification & Booking</h3>
-                            <p class="text-slate-600 leading-relaxed">Qualified leads are directed toward your appointment calendar or forwarded directly to your sales team.</p>
-                        </div>
-                    </div>
-                    <!-- Step 5 -->
-                    <div class="relative flex items-start gap-6 md:gap-8 group">
-                        <div class="flex-shrink-0 w-16 h-16 rounded-2xl bg-blue-50 border-2 border-blue-600 flex items-center justify-center text-blue-600 font-bold text-xl z-10 relative group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">5</div>
-                        <div class="pt-3">
-                            <h3 class="text-xl font-bold text-slate-900 mb-2">Step 5: Business Growth</h3>
-                            <p class="text-slate-600 leading-relaxed">You save hours of manual typing and follow-ups while drastically improving your customer response speed.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 4 - BENEFITS -->
-    <section id="benefits" class="py-20 lg:py-28 bg-blue-600">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Why Automate Your Business?</h2>
-                <p class="text-lg text-blue-100 max-w-2xl mx-auto">Tangible business results designed to increase revenue and decrease operational stress.</p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
-                    <i data-lucide="clock" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
-                    <h4 class="font-semibold text-lg">24/7 Customer Communication</h4>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
-                    <i data-lucide="zap" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
-                    <h4 class="font-semibold text-lg">Instant Response Times</h4>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
-                    <i data-lucide="trending-up" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
-                    <h4 class="font-semibold text-lg">Reduced Missed Leads</h4>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
-                    <i data-lucide="shield" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
-                    <h4 class="font-semibold text-lg">Professional Interactions</h4>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
-                    <i data-lucide="database" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
-                    <h4 class="font-semibold text-lg">Automated Lead Collection</h4>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
-                    <i data-lucide="users" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
-                    <h4 class="font-semibold text-lg">Improved Customer Experience</h4>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
-                    <i data-lucide="building-2" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
-                    <h4 class="font-semibold text-lg">Increased Business Efficiency</h4>
-                </div>
-                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 text-center text-white hover:bg-white/20 transition-colors">
-                    <i data-lucide="briefcase" class="w-8 h-8 mx-auto mb-4 text-blue-200"></i>
-                    <h4 class="font-semibold text-lg">Scalable Communication Systems</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 5 - INDUSTRIES -->
-    <section id="industries" class="py-20 lg:py-28 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Who We Help</h2>
-                <p class="text-lg text-slate-600 max-w-3xl mx-auto">Our automation systems are perfect for businesses that rely on customer inquiries and lead generation.</p>
-            </div>
-            <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">Dental Clinics</span>
-                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">Real Estate Agencies</span>
-                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">Law Firms</span>
-                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">Roofing Companies</span>
-                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">HVAC Businesses</span>
-                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">Ecommerce Stores</span>
-                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">Local Service Businesses</span>
-                <span class="px-6 py-3 bg-white border border-slate-200 rounded-full text-slate-700 font-medium shadow-sm hover:border-blue-300 hover:text-blue-700 transition-colors cursor-default">Consultants & Agencies</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 6 - WHY CHOOSE US -->
-    <section id="why-us" class="py-20 lg:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Why Choose D and D web lab?</h2>
-                <p class="text-lg text-slate-600 max-w-3xl mx-auto">We don't just sell technology. We build robust communication systems designed to solve real business problems.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="flex gap-4 items-start">
-                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
-                    <div>
-                        <h4 class="font-bold text-slate-900 mb-1">Customized AI Solutions</h4>
-                        <p class="text-sm text-slate-600">Built specifically around your data and rules.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4 items-start">
-                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
-                    <div>
-                        <h4 class="font-bold text-slate-900 mb-1">Business-Focused</h4>
-                        <p class="text-sm text-slate-600">Designed to capture leads, not just chat.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4 items-start">
-                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
-                    <div>
-                        <h4 class="font-bold text-slate-900 mb-1">Fast Setup Process</h4>
-                        <p class="text-sm text-slate-600">Deployed quickly with minimal disruption.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4 items-start">
-                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
-                    <div>
-                        <h4 class="font-bold text-slate-900 mb-1">Reliable Support</h4>
-                        <p class="text-sm text-slate-600">Ongoing maintenance and optimization.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4 items-start">
-                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
-                    <div>
-                        <h4 class="font-bold text-slate-900 mb-1">Easy Integration</h4>
-                        <p class="text-sm text-slate-600">Works seamlessly with your existing tools.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4 items-start">
-                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
-                    <div>
-                        <h4 class="font-bold text-slate-900 mb-1">Scalable Systems</h4>
-                        <p class="text-sm text-slate-600">Grows perfectly as your business volume grows.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4 items-start">
-                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
-                    <div>
-                        <h4 class="font-bold text-slate-900 mb-1">Practical Workflows</h4>
-                        <p class="text-sm text-slate-600">No tech jargon, just results-driven systems.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4 items-start">
-                    <i data-lucide="check-circle" class="w-6 h-6 text-blue-600 flex-shrink-0"></i>
-                    <div>
-                        <h4 class="font-bold text-slate-900 mb-1">Modern Technology</h4>
-                        <p class="text-sm text-slate-600">Powered by reliable, top-tier AI models.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 7 - PRICING -->
-    <section id="pricing" class="py-20 lg:py-28 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Transparent, Value-Based Pricing</h2>
-                <p class="text-lg text-slate-600 max-w-3xl mx-auto">Pricing depends on your business requirements and automation complexity. Find a package that fits your goals.</p>
-            </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-center">
-                <!-- Starter Plan -->
-                <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm">
-                    <h3 class="text-2xl font-bold text-slate-900 mb-2">Starter Plan</h3>
-                    <p class="text-slate-500 mb-6">Perfect for establishing automated responses.</p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center gap-3 text-slate-700"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> AI Website Chatbot setup</li>
-                        <li class="flex items-center gap-3 text-slate-700"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> Basic Lead Capture</li>
-                        <li class="flex items-center gap-3 text-slate-700"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> Website Integration</li>
-                        <li class="flex items-center gap-3 text-slate-700"><i data-lucide="check-circle" class="w-5 h-5 text-blue-600"></i> Monthly Support</li>
-                    </ul>
-                    <a href="#contact" class="w-full inline-flex items-center justify-center px-6 py-3 border border-slate-300 text-base font-medium rounded-lg transition-all duration-200 text-slate-700 bg-white hover:bg-slate-50">Request Quote</a>
-                </div>
-
-                <!-- Professional Plan -->
-                <div class="bg-blue-600 border-2 border-blue-600 rounded-2xl p-8 shadow-xl relative lg:-mt-8 lg:-mb-8 z-10 transform scale-100 lg:scale-105">
-                    <div class="absolute top-0 right-8 transform -translate-y-1/2">
-                        <span class="bg-gradient-to-r from-orange-400 to-yellow-400 text-white text-xs font-bold px-3 py-1 uppercase tracking-wider rounded-full shadow-sm">Most Popular</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Professional Plan</h3>
-                    <p class="text-blue-100 mb-6">Complete omni-channel automation system.</p>
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center gap-3 text-white"><i data-lucide="check-circle" class="w-5 h-5 text-blue-200"></i> Everything in Starter</li>
-                        <li class="flex items-center gap-3 text-white"><i data-lucide="check-circle" class="w-5 h-5 text-blue-200"></i> WhatsApp Automation</li>
-                        <li class="flex items-center gap-3 text-white"><i data-lucide="check-circle" class="w-5 h-5 text-blue-200"></i> Email Automation Integration</li>
-                        <li class="flex items-center gap-3 text-white"><i data-lucide="check-circle" class="w-5 h-5 text-blue-200"></i> Appointment Booking flow</li>
-                        <li class="flex items-center gap-3 text-white"><i data-lucide="check-circle" class="w-5 h-5 text-blue-200"></i> Advanced Lead Handling</li>
-                    </ul>
-                    <a href="#contact" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg transition-all duration-200 bg-white text-blue-600 hover:bg-slate-50 shadow-md">Book Strategy Call</a>
-                </div>
-                </div>
-        </div>
-    </section>
-
-            
-
-    <!-- SECTION 8 - APPOINTMENT BOOKING -->
-    <section class="py-24 bg-slate-900 text-center px-4">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Communication?</h2>
-            <p class="text-lg text-slate-300 mb-10 leading-relaxed">
-                Schedule a free consultation call. We will discuss your current business workflows, perform a custom strategy analysis, and recommend the exact automation solutions you need to save time and capture more leads.
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-900">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/30 via-slate-900 to-black pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 max-w-5xl mx-auto">
+                Build an AI Lead Generation Engine That Books High-Ticket Appointments on Autopilot.
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed">
+                We help roofing companies, real estate agencies, and local service businesses combine targeted client acquisition traffic with intelligent, instant qualification. Stop chasing unqualified leads and start closing ready-to-buy clients.
             </p>
-            <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-lg transition-all duration-200 text-white bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-900/50">
-                Book Your Free Consultation <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
-            </a>
-        </div>
-    </section>
-
-    <!-- SECTION 9 - FAQ -->
-    <section id="faq" class="py-20 lg:py-28 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Frequently Asked Questions</h2>
-                <p class="text-lg text-slate-600 max-w-3xl mx-auto">Clear answers about how our AI automation agency operates and integrates with your business.</p>
-            </div>
-            
-            <div class="max-w-3xl mx-auto space-y-4">
-                <!-- FAQ 1 -->
-                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
-                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="0">
-                        <span class="font-semibold text-slate-900 pr-8">How does the AI chatbot work?</span>
-                        <i id="faq-icon-0" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
-                    </button>
-                    <div id="faq-content-0" class="faq-content px-6">
-                        <p class="text-slate-600 pb-4">Our custom AI chatbots are trained specifically on your business information. They interact with your website visitors in real-time, answering questions, providing service details, and collecting lead information just like a human sales assistant.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
-                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="1">
-                        <span class="font-semibold text-slate-900 pr-8">Can the chatbot be trained on my business?</span>
-                        <i id="faq-icon-1" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
-                    </button>
-                    <div id="faq-content-1" class="faq-content px-6">
-                        <p class="text-slate-600 pb-4">Absolutely. We input your FAQs, service descriptions, pricing (if public), and brand voice into the system so it represents your business accurately and professionally.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
-                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="2">
-                        <span class="font-semibold text-slate-900 pr-8">Can it connect with WhatsApp?</span>
-                        <i id="faq-icon-2" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
-                    </button>
-                    <div id="faq-content-2" class="faq-content px-6">
-                        <p class="text-slate-600 pb-4">Yes. We can deploy AI automation directly to your WhatsApp Business number, allowing you to handle hundreds of customer inquiries instantly without manual typing.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
-                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="3">
-                        <span class="font-semibold text-slate-900 pr-8">Can AI answer emails automatically?</span>
-                        <i id="faq-icon-3" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
-                    </button>
-                    <div id="faq-content-3" class="faq-content px-6">
-                        <p class="text-slate-600 pb-4">Yes. Our systems can draft professional responses to customer inquiries, handle common support questions, and tee up complex issues for your human team to review.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ 5 -->
-                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
-                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="4">
-                        <span class="font-semibold text-slate-900 pr-8">Is setup included?</span>
-                        <i id="faq-icon-4" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
-                    </button>
-                    <div id="faq-content-4" class="faq-content px-6">
-                        <p class="text-slate-600 pb-4">Yes, all our plans include complete setup, testing, and deployment. We handle the technical heavy lifting so you can focus on your business.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ 6 -->
-                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
-                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="5">
-                        <span class="font-semibold text-slate-900 pr-8">How long does deployment take?</span>
-                        <i id="faq-icon-5" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
-                    </button>
-                    <div id="faq-content-5" class="faq-content px-6">
-                        <p class="text-slate-600 pb-4">Depending on the complexity and the platforms involved, a standard automation system is typically built, tested, and deployed within 1 to 2 weeks.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ 7 -->
-                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
-                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="6">
-                        <span class="font-semibold text-slate-900 pr-8">Can the system collect leads?</span>
-                        <i id="faq-icon-6" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
-                    </button>
-                    <div id="faq-content-6" class="faq-content px-6">
-                        <p class="text-slate-600 pb-4">Lead capture is a primary feature. The AI automatically asks for names, emails, phone numbers, and specific requirements before passing that information directly to your CRM or email.</p>
-                    </div>
-                </div>
-
-                <!-- FAQ 8 -->
-                <div class="bg-white border border-slate-200 rounded-xl overflow-hidden transition-all duration-200 hover:border-blue-300">
-                    <button class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none" data-target="7">
-                        <span class="font-semibold text-slate-900 pr-8">Is ongoing support provided?</span>
-                        <i id="faq-icon-7" data-lucide="chevron-down" class="w-5 h-5 text-slate-400 flex-shrink-0 transition-transform duration-200"></i>
-                    </button>
-                    <div id="faq-content-7" class="faq-content px-6">
-                        <p class="text-slate-600 pb-4">Yes, our packages include ongoing support, system monitoring, and periodic optimization to ensure your AI continues to perform perfectly as your business grows.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 10 - CONTACT -->
-    <section id="contact" class="py-20 lg:py-28 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Get in Touch</h2>
-                <p class="text-lg text-slate-600 max-w-3xl mx-auto">Let's build a communication system that works for you 24/7.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- WhatsApp Contact -->
-                <a href="https://wa.me/923239530976" target="_blank" rel="noopener noreferrer" class="bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
-                    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-600 group-hover:text-white transition-colors">
-                        <i data-lucide="phone" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">WhatsApp</h3>
-                    <p class="text-slate-500 mb-4">Fastest way to reach out for quick queries.</p>
-                    <span class="text-green-600 font-semibold flex items-center justify-center gap-2">Message Us <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#pricing" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-semibold text-lg transition-all shadow-lg shadow-blue-600/30 w-full sm:w-auto flex items-center justify-center group">
+                    Request Free Prototype
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </a>
-
-                <!-- Email Contact -->
-                <a href="mailto:ddweblab@gmail.com" class="bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <i data-lucide="mail" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Email</h3>
-                    <p class="text-slate-500 mb-4">Send us your project details or questions.</p>
-                    <span class="text-blue-600 font-semibold flex items-center justify-center gap-2">ddweblab@gmail.com</span>
-                </a>
-
-                <!-- LinkedIn Contact -->
-                <a href="https://www.linkedin.com/in/malik-zeeshan-bangash-884066371" target="_blank" rel="noopener noreferrer" class="bg-slate-50 border border-slate-200 rounded-2xl p-8 text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group">
-                    <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                        <i data-lucide="linkedin" class="w-8 h-8"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">LinkedIn</h3>
-                    <p class="text-slate-500 mb-4">Connect with Malik Zeeshan Bangash.</p>
-                    <span class="text-indigo-600 font-semibold flex items-center justify-center gap-2">View Profile <i data-lucide="arrow-right" class="w-4 h-4"></i></span>
-                </a>
-            </div>
-            
-            <div class="mt-16 text-center">
-                <a href="https://wa.me/923239530976" target="_blank" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-lg transition-all duration-200 text-white bg-slate-900 hover:bg-slate-800 shadow-sm hover:shadow">
-                    Book Consultation Call Now
+                <a href="https://wa.me/message/QQ4BLPNIUMCIO1" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-transparent hover:bg-white/5 text-white rounded-xl font-semibold text-lg transition-all border border-slate-600 hover:border-white hover:text-green-400 w-full sm:w-auto flex items-center justify-center group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 w-5 h-5 text-white group-hover:text-green-400 transition-colors"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                    WhatsApp Us
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 11 - FOOTER -->
-    <footer class="bg-slate-950 pt-16 pb-8 border-t border-slate-800">
+    <!-- CORE SERVICES SECTION: The 4-Layer Engine -->
+    <section id="services" class="py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-12">
-                <div class="md:col-span-2">
-                    <a href="#" class="text-2xl font-bold text-white tracking-tight flex items-center gap-2 mb-4">
-                        <i data-lucide="database" class="w-8 h-8 text-blue-500"></i>
-                        D and D web lab
+            <div class="text-center max-w-4xl mx-auto mb-20">
+                <span class="text-blue-600 font-bold tracking-wider uppercase text-sm mb-4 block">The Pipeline System</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6">The Complete AI-Powered Lead Generation & Automated Sales Pipeline</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">A proven 4-layer engine designed exclusively to capture, qualify, and convert high-ticket leads without the manual legwork.</p>
+            </div>
+           
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                <!-- Layer 1 -->
+                <div class="bg-slate-50 border border-slate-100 p-10 rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Layer 1: Target-Optimized Client Acquisition Traffic</h3>
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        Attracting highly motivated, local buyers and property owners actively searching for your services. We bypass low-intent browsers to connect you exclusively with high-ticket prospects that convert.
+                    </p>
+                </div>
+
+                <!-- Layer 2 -->
+                <div class="bg-slate-50 border border-slate-100 p-10 rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect width="18" height="14" x="3" y="7" rx="2"/><path d="M12 7V3"/><path d="M8 7v4"/><path d="M16 7v4"/><path d="M9 15h6"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Layer 2: 24/7 AI Qualification Chatbot</h3>
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        Conversing naturally to answer questions and rigorously filter out tire-kickers. Engages prospects instantly on messaging apps and your website, capturing vital data before they bounce.
+                    </p>
+                </div>
+
+                <!-- Layer 3 -->
+                <div class="bg-slate-50 border border-slate-100 p-10 rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Layer 3: Centralized CRM Pipeline Sync & Instant Alerts</h3>
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        Logging verified leads instantly and firing real-time notifications directly to your sales team. You get the correct information at the exact moment a prospect is hot and ready to buy.
+                    </p>
+                </div>
+
+                <!-- Layer 4 -->
+                <div class="bg-slate-50 border border-slate-100 p-10 rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Layer 4: Automated Follow-Up & Safeguard Sequences</h3>
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        Multi-channel text and email nudges intelligently sent 24 to 48 hours later, bringing distracted prospects back to the booking calendar autonomously to guarantee zero drop-off.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION: The Build-First Model -->
+    <section id="how-it-works" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">The Zero-Risk "Build-First" Model</h2>
+                <p class="text-lg text-slate-400 leading-relaxed">A seamless, transparent process prioritizing your business results before you spend a dime.</p>
+            </div>
+           
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                <!-- Connecting line for desktop -->
+                <div class="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-slate-800 z-0"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 bg-slate-800 border-4 border-slate-900 text-blue-400 rounded-full flex items-center justify-center text-3xl font-black mb-8 shadow-2xl">1</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Strategy Analysis</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Mapping out your current sales pipeline bottlenecks. We identify exactly where leads are dropping off and architect a custom automation blueprint to plug the leaks.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 bg-blue-600 border-4 border-slate-900 text-white rounded-full flex items-center justify-center text-3xl font-black mb-8 shadow-2xl shadow-blue-900/50">2</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Custom Prototype Build</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        We construct a tailored qualification bot on our own dime with zero upfront cost or risk. You get to test-drive a fully functional prototype designed specifically for your business logic.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 bg-slate-800 border-4 border-slate-900 text-blue-400 rounded-full flex items-center justify-center text-3xl font-black mb-8 shadow-2xl">3</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Review & Deployment</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        We demo the live asset. If you love it, we connect it to your live systems and launch the traffic. If it’s not exactly what you need, you walk away completely free.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6">Transparent, Value-Based Investment</h2>
+                <p class="text-lg text-slate-600">Professional systems designed to scale your revenue without scaling your headcount.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-center">
+               
+                <!-- Tier 1 -->
+                <div class="bg-white p-10 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">The Lead Engine Setup</h3>
+                    <p class="text-slate-500 mb-8 leading-relaxed">Perfect for establishing baseline automated responses and rigorous lead capture.</p>
+                  
+                    <div class="mb-8">
+                        <span class="text-5xl font-extrabold text-slate-900">Custom</span>
+                        <span class="text-lg text-slate-500 font-medium ml-2">/ project</span>
+                    </div>
+
+                    <ul class="space-y-5 mb-10">
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                            <span class="text-slate-700 font-medium">Custom Qualification Chatbot</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                            <span class="text-slate-700 font-medium">Automated Data-Capture</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                            <span class="text-slate-700 font-medium">Instant Owner Alerts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                            <span class="text-slate-700 font-medium">Full System Hand-off</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                            <span class="text-slate-700 font-medium">Monthly Technical Support</span>
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/message/QQ4BLPNIUMCIO1" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-4 rounded-xl border-2 border-slate-200 text-slate-900 hover:border-blue-600 hover:text-blue-600 font-bold text-lg transition-all">
+                        Request Quote
                     </a>
-                    <p class="text-slate-400 max-w-sm leading-relaxed mb-6">
+                </div>
+
+                <!-- Tier 2 (Most Popular) -->
+                <div class="bg-slate-900 p-10 rounded-[2rem] border border-slate-800 shadow-2xl relative transform md:-translate-y-4">
+                    <div class="absolute top-0 right-10 transform -translate-y-1/2">
+                        <span class="bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg shadow-blue-600/30">
+                            Most Popular
+                        </span>
+                    </div>
+                  
+                    <h3 class="text-2xl font-bold text-white mb-3">The Complete Growth Engine</h3>
+                    <p class="text-slate-400 mb-8 leading-relaxed">The ultimate end-to-end system. Complete omni-channel automation and dedicated target traffic.</p>
+                  
+                    <div class="mb-8">
+                        <span class="text-5xl font-extrabold text-white">Custom</span>
+                        <span class="text-lg text-slate-400 font-medium ml-2">/ month</span>
+                    </div>
+
+                    <ul class="space-y-5 mb-10">
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                            <span class="text-slate-300 font-medium">Target Traffic Campaigns</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                            <span class="text-slate-300 font-medium">Omni-Channel Messaging Integration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                            <span class="text-slate-300 font-medium">Centralized CRM Mapping</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                            <span class="text-slate-300 font-medium">Automated Follow-Up Sequences</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                            <span class="text-slate-300 font-medium">Ongoing Monthly Optimization</span>
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/message/QQ4BLPNIUMCIO1" target="_blank" rel="noopener noreferrer" class="block text-center w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all shadow-lg shadow-blue-600/25">
+                        Book Strategy Call
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQS SECTION -->
+    <section id="faqs" class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6">Frequently Asked Questions</h2>
+                <p class="text-lg text-slate-600">Clear answers about how our AI systems drive high-ticket conversions.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl border border-slate-200 p-4 sm:p-8 shadow-sm">
+                <!-- FAQ Item 1 -->
+                <div class="border-b border-slate-200">
+                    <button class="faq-btn w-full py-6 flex justify-between items-center text-left focus:outline-none group">
+                        <span class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">How does the client acquisition traffic connect to the qualification chatbots?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-5 h-5 text-slate-500 transition-transform duration-300"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-content overflow-hidden pr-8 pb-6 text-slate-600 leading-relaxed">
+                        We direct high-intent traffic from our campaigns directly into dedicated landing pages or messaging links. The moment a prospect clicks, the AI chatbot instantly engages them, ensuring zero delay between their initial interest and our rigorous qualification process.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="border-b border-slate-200">
+                    <button class="faq-btn w-full py-6 flex justify-between items-center text-left focus:outline-none group">
+                        <span class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">How are my leads securely stored and managed?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-5 h-5 text-slate-500 transition-transform duration-300"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-content overflow-hidden pr-8 pb-6 text-slate-600 leading-relaxed">
+                        All captured data is instantly encrypted and synced directly to your centralized CRM. We map the data fields exactly to your pipeline, ensuring your team has secure, organized access to every qualified prospect in real-time.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="border-b border-slate-200">
+                    <button class="faq-btn w-full py-6 flex justify-between items-center text-left focus:outline-none group">
+                        <span class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">How do the automated follow-ups increase conversions?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-5 h-5 text-slate-500 transition-transform duration-300"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-content overflow-hidden pr-8 pb-6 text-slate-600 leading-relaxed">
+                        Many high-ticket prospects get distracted before booking a call. Our safeguard sequences use natural, conversational multi-channel text and email nudges 24 to 48 hours later to re-engage them, recovering lost leads and pushing them back to your calendar.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="border-b border-slate-200">
+                    <button class="faq-btn w-full py-6 flex justify-between items-center text-left focus:outline-none group">
+                        <span class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">What if the customized prototype doesn't fit our business?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-5 h-5 text-slate-500 transition-transform duration-300"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-content overflow-hidden pr-8 pb-6 text-slate-600 leading-relaxed">
+                        That is the beauty of our Build-First model. We build the qualification bot at our own expense. If you review the live demo and feel it isn't the perfect fit, you can walk away with zero financial commitment or risk.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="border-b border-slate-200">
+                    <button class="faq-btn w-full py-6 flex justify-between items-center text-left focus:outline-none group">
+                        <span class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">Can the AI handle complex questions about my specific local services?</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-5 h-5 text-slate-500 transition-transform duration-300"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-content overflow-hidden pr-8 pb-6 text-slate-600 leading-relaxed">
+                        Absolutely. We deeply train the AI on your specific business knowledge, service limitations, and pricing structures so it handles inquiries accurately and professionally, exactly like your best sales rep.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER & CONTACT -->
+    <footer id="contact" class="bg-slate-950 pt-20 pb-10 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+              
+                <div class="col-span-1 md:col-span-2">
+                    <span class="text-2xl font-extrabold tracking-tight text-white mb-4 block">
+                        D and D <span class="text-blue-500 font-light">web lab</span>
+                    </span>
+                    <p class="text-slate-400 mb-2 font-medium">Founded by Zeeshan Bangash</p>
+                    <p class="text-slate-500 max-w-sm leading-relaxed mb-6">
                         Professional AI automation agency helping businesses capture more leads, speed up response times, and reduce manual customer support operations.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="https://wa.me/923239530976" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors p-2 bg-slate-800 rounded-full hover:bg-green-600">
-                            <i data-lucide="phone" class="w-5 h-5"></i>
-                        </a>
-                        <a href="mailto:ddweblab@gmail.com" class="text-slate-400 hover:text-white transition-colors p-2 bg-slate-800 rounded-full hover:bg-blue-600">
-                            <i data-lucide="mail" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/malik-zeeshan-bangash-884066371" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors p-2 bg-slate-800 rounded-full hover:bg-indigo-600">
-                            <i data-lucide="linkedin" class="w-5 h-5"></i>
-                        </a>
-                    </div>
+                    <a href="https://wa.me/message/QQ4BLPNIUMCIO1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-colors shadow-lg shadow-blue-600/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Start a Conversation
+                    </a>
                 </div>
-                
+
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-3">
+                    <h4 class="text-white font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4">
                         <li><a href="#services" class="text-slate-400 hover:text-blue-400 transition-colors">Our Services</a></li>
                         <li><a href="#how-it-works" class="text-slate-400 hover:text-blue-400 transition-colors">How it Works</a></li>
                         <li><a href="#pricing" class="text-slate-400 hover:text-blue-400 transition-colors">Pricing Plans</a></li>
-                        <li><a href="#faq" class="text-slate-400 hover:text-blue-400 transition-colors">FAQs</a></li>
+                        <li><a href="#faqs" class="text-slate-400 hover:text-blue-400 transition-colors">FAQs</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-3">
-                        <li><a href="https://wa.me/923239530976" class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> WhatsApp Us</a></li>
-                        <li><a href="mailto:ddweblab@gmail.com" class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4"></i> Email Us</a></li>
-                        <li><a href="#contact" class="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-2"><i data-lucide="calendar" class="w-4 h-4"></i> Book Call</a></li>
+                    <h4 class="text-white font-bold mb-6">Get in Touch</h4>
+                    <ul class="space-y-5">
+                        <li>
+                            <a href="https://wa.me/message/QQ4BLPNIUMCIO1" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-green-400 transition-colors flex items-center group">
+                                <span class="bg-slate-900 p-2 rounded-md mr-3 group-hover:bg-slate-800 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+                                </span>
+                                WhatsApp
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:ddweblab@gmail.com" class="text-slate-400 hover:text-blue-400 transition-colors flex items-center group">
+                                <span class="bg-slate-900 p-2 rounded-md mr-3 group-hover:bg-slate-800 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                </span>
+                                Email Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/malik-zeeshan-bangash-884066371" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-500 transition-colors flex items-center group">
+                                <span class="bg-slate-900 p-2 rounded-md mr-3 group-hover:bg-slate-800 transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                                </span>
+                                LinkedIn Profile
+                            </a>
+                        </li>
                     </ul>
                 </div>
+
             </div>
             
-            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-slate-500 text-sm" id="copyright-text"></p>
-                <p class="text-slate-500 text-sm">
+            <div class="pt-8 border-t border-slate-800 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-600 text-sm">
+                    &copy; <script>document.write(new Date().getFullYear())</script> D and D web lab. All rights reserved.
+                </p>
+                <p class="text-slate-600 text-sm mt-4 md:mt-0 font-medium">
                     Automating Business Operations
                 </p>
             </div>
         </div>
     </footer>
 
-
-
-    <!-- Scripts for Interactivity -->
+    <!-- INTERACTIVE JAVASCRIPT FOR MENUS AND FAQS -->
     <script>
-        // Initialize Icons
-        lucide.createIcons();
-
-        // Set Copyright Year dynamically
-        document.getElementById('copyright-text').innerHTML = `&copy; ${new Date().getFullYear()} D and D web lab. All rights reserved.`;
-
-        // Mobile Menu Logic
+        // Mobile Menu Toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const menuIconWrapper = document.getElementById('menu-icon-wrapper');
-        let isMenuOpen = false;
+        const iconMenu = document.getElementById('icon-menu');
+        const iconClose = document.getElementById('icon-close');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        function closeMenu() {
-            isMenuOpen = false;
-            mobileMenu.classList.add('hidden');
-            menuIconWrapper.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
-            lucide.createIcons();
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            iconMenu.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
         }
 
-        menuBtn.addEventListener('click', () => {
-            isMenuOpen = !isMenuOpen;
-            if (isMenuOpen) {
-                mobileMenu.classList.remove('hidden');
-                menuIconWrapper.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
-            } else {
-                mobileMenu.classList.add('hidden');
-                menuIconWrapper.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
-            }
-            lucide.createIcons();
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Close mobile menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!mobileMenu.classList.contains('hidden')) {
+                    toggleMenu();
+                }
+            });
         });
 
-        // Close menu when clicking a link
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
+        // FAQ Accordion Toggle
+        const faqBtns = document.querySelectorAll('.faq-btn');
 
-        // FAQ Accordion Logic
-        const faqButtons = document.querySelectorAll('.faq-btn');
-        let activeFAQ = null;
-
-        faqButtons.forEach((btn) => {
+        faqBtns.forEach(btn => {
             btn.addEventListener('click', () => {
-                const targetId = btn.getAttribute('data-target');
-                const content = document.getElementById(`faq-content-${targetId}`);
-                const icon = document.getElementById(`faq-icon-${targetId}`);
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('.faq-icon');
+                
+                // Check if currently open
+                const isOpen = content.classList.contains('open');
 
-                if (activeFAQ === targetId) {
-                    // Close currently open
-                    content.style.maxHeight = null;
-                    content.style.opacity = '0';
-                    icon.classList.remove('rotate-180', 'text-blue-600');
-                    activeFAQ = null;
-                } else {
-                    // Close previous if exists
-                    if (activeFAQ !== null) {
-                        const prevContent = document.getElementById(`faq-content-${activeFAQ}`);
-                        const prevIcon = document.getElementById(`faq-icon-${activeFAQ}`);
-                        prevContent.style.maxHeight = null;
-                        prevContent.style.opacity = '0';
-                        prevIcon.classList.remove('rotate-180', 'text-blue-600');
-                    }
-                    // Open new
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                    content.style.opacity = '1';
-                    icon.classList.add('rotate-180', 'text-blue-600');
-                    activeFAQ = targetId;
+                // Close all FAQs
+                document.querySelectorAll('.faq-content').forEach(c => c.classList.remove('open'));
+                document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+
+                // If it wasn't open before, open it now
+                if (!isOpen) {
+                    content.classList.add('open');
+                    icon.style.transform = 'rotate(180deg)';
                 }
             });
         });
     </script>
 </body>
-    731        });
-732    </script>
-733    <script id="respondio__widget" src="https://cdn.respond.io/webchat/widget/widget.js?cId=e32815430f358cf6261af5c50bedc30"></script>
-734 </body>
-735 </html>
 </html>

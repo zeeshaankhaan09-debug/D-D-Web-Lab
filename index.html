@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D and D web lab - AI Lead Generation Agency</title>
+    <title>D and D web lab - Custom Website AI Receptionists</title>
     
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Custom Tailwind Configuration for smooth animations -->
+    <!-- Custom Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -31,10 +31,6 @@
             max-height: 500px;
             opacity: 1;
         }
-        /* Modal Scroll Fix */
-        .modal-scrollable-area {
-            -webkit-overflow-scrolling: touch;
-        }
     </style>
 </head>
 <body class="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-900">
@@ -45,10 +41,8 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
-                    
-                    <!-- Your Logo Image -->
-                    <img src="logo.png" alt="Logo" class="h-10 w-auto mr-3">
-                    
+                    <!-- Preconfigured slot for your logo.png -->
+                    <img src="logo.png" alt="D and D Web Lab Logo" class="h-10 w-auto mr-3 object-contain" onerror="this.style.display='none'">
                     <span class="text-2xl font-extrabold tracking-tight text-slate-900">
                         D and D <span class="text-blue-600 font-light">web lab</span>
                     </span>
@@ -56,12 +50,16 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#services" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Services</a>
-                    <a href="#how-it-works" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">How it Works</a>
+                    <a href="#features" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">What It Does</a>
+                    <a href="#how-it-works" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Our "Build First" Policy</a>
+                    <a href="#pricing" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Pricing</a>
                     <a href="#faqs" class="text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">FAQs</a>
-                    <button class="open-modal-btn px-6 py-2.5 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-all shadow-md hover:shadow-lg focus:outline-none">
-                        Book Consultation
-                    </button>
+                    <a href="https://wa.me/16503795054?text=Hi!%20I'm%20interested%20in%20getting%20a%20custom%20website%20AI%20receptionist%20built%20for%20my%20business." 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="px-5 py-2.5 rounded-lg bg-slate-900 text-white text-sm font-semibold hover:bg-slate-800 transition-all shadow-md hover:shadow-lg">
+                        Get Your Chatbot
+                    </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -78,12 +76,16 @@
 
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 px-4 pt-2 pb-6 space-y-2 shadow-xl absolute w-full">
-            <a href="#services" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">Services</a>
-            <a href="#how-it-works" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">How it Works</a>
+            <a href="#features" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">What It Does</a>
+            <a href="#how-it-works" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">Our "Build First" Policy</a>
+            <a href="#pricing" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">Pricing</a>
             <a href="#faqs" class="mobile-link block px-3 py-3 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md">FAQs</a>
-            <button class="open-modal-btn block w-full text-center mt-4 px-6 py-3 rounded-lg bg-blue-600 text-white text-base font-semibold hover:bg-blue-700 transition-colors focus:outline-none">
-                Book Consultation
-            </button>
+            <a href="https://wa.me/16503795054?text=Hi!%20I'm%20interested%20in%20getting%20a%20custom%20website%20AI%20receptionist%20built%20for%20my%20business." 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="block w-full text-center mt-4 px-6 py-3 rounded-lg bg-blue-600 text-white text-base font-semibold hover:bg-blue-700 transition-colors">
+                Get Your Chatbot
+            </a>
         </div>
     </nav>
 
@@ -91,215 +93,187 @@
     <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-slate-900">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/30 via-slate-900 to-black pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-400/20 text-blue-300 text-sm font-semibold mb-6">
+                <span>⚡ Try Before You Buy: We Build Your Custom Chatbot First</span>
+            </div>
+
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-6 max-w-5xl mx-auto">
-                We Build AI Lead Generation Engines That Book Appointments on Autopilot
+                Add a 24/7 Custom AI Receptionist To Your Website
             </h1>
             <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-                We launch high-converting client acquisition campaigns, qualify the traffic instantly using trained AI Chatbots, and sync hot leads straight into your sales pipeline—alerting your team in seconds.
+                We design and train an intelligent chatbot specifically for your business website. It automatically handles customer questions, filters leads, and sends your scheduling link to high-intent clients.
             </p>
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <!-- CTA Updated to trigger Modal -->
-                <button class="open-modal-btn px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-semibold text-lg transition-all shadow-lg shadow-blue-600/30 w-full sm:w-auto flex items-center justify-center group focus:outline-none">
-                    Book Strategy Call
+                <!-- Primary Action -> Direct to WhatsApp -->
+                <a href="https://wa.me/16503795054?text=Hi!%20I%20want%20to%20get%20a%20custom%20website%20AI%20chatbot%20built%20for%20my%20business.%20Let's%20start!" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-semibold text-lg transition-all shadow-lg shadow-blue-600/30 w-full sm:w-auto flex items-center justify-center group">
+                    Message Us on WhatsApp
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </button>
-                <a href="https://wa.me/message/QQ4BLPNIUMCIO1" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-transparent hover:bg-white/5 text-white rounded-xl font-semibold text-lg transition-all border border-slate-600 hover:border-white hover:text-green-400 w-full sm:w-auto flex items-center justify-center group">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 w-5 h-5 text-white group-hover:text-green-400 transition-colors"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-                    WhatsApp Us
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- CORE SERVICES SECTION: The 4-Layer Engine -->
-    <section id="services" class="py-24 bg-white relative">
+    <!-- WHAT IT DOES SECTION -->
+    <section id="features" class="py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-4xl mx-auto mb-20">
-                <span class="text-blue-600 font-bold tracking-wider uppercase text-sm mb-4 block">The Pipeline System</span>
-                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6">The Complete AI-Powered Lead Generation & Automated Sales Pipeline</h2>
-                <p class="text-lg text-slate-600 leading-relaxed">A proven 4-layer engine designed exclusively to capture, qualify, and convert high-ticket leads without the manual legwork.</p>
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <span class="text-blue-600 font-bold tracking-wider uppercase text-sm mb-4 block">Meet Your New Employee</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6">Your Always-On Website Representative</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">Keep your website working for you while you focus on running your business. No technical setup, coding, or system management required.</p>
             </div>
-           
+            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-                <!-- Layer 1 -->
-                <div class="bg-slate-50 border border-slate-100 p-10 rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                <!-- Benefit 1 -->
+                <div class="bg-slate-50 border border-slate-100 p-10 rounded-3xl hover:shadow-lg transition-all">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Client Acquisition Campaigns</h3>
-                    <p class="text-slate-600 leading-relaxed text-lg">
-                        Targeted local marketing campaigns built specifically to attract motivated buyers, property owners, or high-intent clients directly to your business.
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Answers Questions 24/7</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Whether it is 3 AM or mid-afternoon, your custom chatbot instantly answers customer questions about your exact services, availability, and business info based on data we train it on.
                     </p>
                 </div>
 
-                <!-- Layer 2 -->
-                <div class="bg-slate-50 border border-slate-100 p-10 rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><rect width="18" height="14" x="3" y="7" rx="2"/><path d="M12 7V3"/><path d="M8 7v4"/><path d="M16 7v4"/><path d="M9 15h6"/></svg>
+                <!-- Benefit 2 -->
+                <div class="bg-slate-50 border border-slate-100 p-10 rounded-3xl hover:shadow-lg transition-all">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-4">24/7 AI Qualification Chatbots</h3>
-                    <p class="text-slate-600 leading-relaxed text-lg">
-                        Custom AI conversational systems deployed on your website, WhatsApp, or social media to answer questions instantly, handle objections, and screen out tire-kickers.
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Sends Your Booking Links</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Once a visitor expresses direct interest, the chatbot drops your custom scheduling page link (Calendly, Acuity, etc.) directly in the conversation to turn traffic into booked meetings.
                     </p>
                 </div>
 
-                <!-- Layer 3 -->
-                <div class="bg-slate-50 border border-slate-100 p-10 rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+                <!-- Benefit 3 -->
+                <div class="bg-slate-50 border border-slate-100 p-10 rounded-3xl hover:shadow-lg transition-all">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" x2="4" y1="22" y2="15"/></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Automated Sales Pipelines</h3>
-                    <p class="text-slate-600 leading-relaxed text-lg">
-                        Instant data mapping that securely funnels qualified leads straight into a centralized visual pipeline, accompanied by real-time mobile and email alerts for your team.
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Trained on Your Website</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        No guesswork. We feed the chatbot your website copy, policy documents, lists of services, and custom guidelines so it sounds like your top employee and avoids saying wrong details.
                     </p>
                 </div>
 
-                <!-- Layer 4 -->
-                <div class="bg-slate-50 border border-slate-100 p-10 rounded-3xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <!-- Benefit 4 -->
+                <div class="bg-slate-50 border border-slate-100 p-10 rounded-3xl hover:shadow-lg transition-all">
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-4">24/48-Hour Follow-Up Safeguards</h3>
-                    <p class="text-slate-600 leading-relaxed text-lg">
-                        Multi-channel text and email sequences that automatically trigger to nurture distracted prospects and bring them straight back to your booking calendar.
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Asks Qualifying Questions</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        It filters out spam, tire-kickers, and irrelevant questions. The chatbot collects basic details (name, business need, contact details) before sharing links or alerting your team.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- HOW IT WORKS SECTION: Professional Integration Process -->
+    <!-- HOW IT WORKS SECTION -->
     <section id="how-it-works" class="py-24 bg-slate-900 text-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">Our Proven Deployment Framework</h2>
-                <p class="text-lg text-slate-400 leading-relaxed">A seamless, professional process prioritizing your business results through careful mapping, building, and launch.</p>
+                <span class="text-blue-500 font-semibold tracking-wider uppercase text-sm mb-4 block">ZERO RISK PROCESS</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mb-6">We Build It First. You Pay Only If You Love It.</h2>
+                <p class="text-lg text-slate-400 leading-relaxed">We don’t ask for credit cards or upfront commitments. We construct the chatbot and demonstrate it to you first.</p>
             </div>
-           
+            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-                <!-- Connecting line for desktop -->
-                <div class="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-slate-800 z-0"></div>
+                <!-- Connection Line -->
+                <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-slate-800 z-0"></div>
 
                 <!-- Step 1 -->
                 <div class="relative z-10 flex flex-col items-center text-center">
                     <div class="w-24 h-24 bg-slate-800 border-4 border-slate-900 text-blue-400 rounded-full flex items-center justify-center text-3xl font-black mb-8 shadow-2xl">1</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Pipeline Analysis</h3>
+                    <h3 class="text-2xl font-bold text-white mb-4">1. Talk on WhatsApp</h3>
                     <p class="text-slate-400 leading-relaxed">
-                        We map out your current client intake bottlenecks, define your custom qualification rules, and design a strategic automation blueprint tailored to your needs.
+                        Send us your website link and any basic documents you want the chatbot to read. We'll outline your receptionist flow directly on chat.
                     </p>
                 </div>
 
                 <!-- Step 2 -->
                 <div class="relative z-10 flex flex-col items-center text-center">
-                    <div class="w-24 h-24 bg-blue-600 border-4 border-slate-900 text-white rounded-full flex items-center justify-center text-3xl font-black mb-8 shadow-2xl shadow-blue-900/50">2</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Custom System Build</h3>
+                    <div class="w-24 h-24 bg-blue-600 border-4 border-slate-900 text-white rounded-full flex items-center justify-center text-3xl font-black mb-8 shadow-2xl">2</div>
+                    <h3 class="text-2xl font-bold text-white mb-4">2. We Build & Train</h3>
                     <p class="text-slate-400 leading-relaxed">
-                        We engineer a tailored AI chatbot trained specifically on your business data, integrated seamlessly with your chosen platforms and CRM architecture.
+                        Our lab programs your chatbot's parameters, brand colors, custom greetings, and syncs your calendar link. We do all of this in-house.
                     </p>
                 </div>
 
                 <!-- Step 3 -->
                 <div class="relative z-10 flex flex-col items-center text-center">
                     <div class="w-24 h-24 bg-slate-800 border-4 border-slate-900 text-blue-400 rounded-full flex items-center justify-center text-3xl font-black mb-8 shadow-2xl">3</div>
-                    <h3 class="text-2xl font-bold text-white mb-4">Review & Launch</h3>
+                    <h3 class="text-2xl font-bold text-white mb-4">3. Test & Launch</h3>
                     <p class="text-slate-400 leading-relaxed">
-                        We conduct a comprehensive system demonstration and verify all lead-routing logic with your team. Once approved, we officially deploy your automated acquisition engine.
+                        We send you a preview link to interact with your live chatbot on your own site. Only choose to subscribe when you see it functioning perfectly.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PRICING SECTION -->
+    <!-- CLEAR PRICING SECTION -->
     <section id="pricing" class="py-24 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6">Transparent, Value-Based Investment</h2>
-                <p class="text-lg text-slate-600">Professional systems designed to scale your revenue without scaling your headcount. Pricing is determined on our strategy call based on your exact pipeline needs.</p>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-blue-600 font-bold tracking-wider uppercase text-sm mb-4 block">No Surprise Bills</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6">Simple Flat-Rate Plan</h2>
+                <p class="text-lg text-slate-600">Complete ongoing cloud hosting, unlimited chats, and continuous knowledge edits, managed entirely by our lab.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-center">
-               
-                <!-- Tier 1 -->
-                <div class="bg-white p-10 rounded-[2rem] border border-slate-200 shadow-sm hover:shadow-xl transition-shadow duration-300">
-                    <h3 class="text-2xl font-bold text-slate-900 mb-3">The Lead Engine Setup</h3>
-                    <p class="text-slate-500 mb-8 leading-relaxed">Perfect for establishing baseline automated responses and rigorous lead capture.</p>
-                  
-                    <div class="mb-8">
-                        <span class="text-5xl font-extrabold text-slate-900">Custom</span>
-                        <span class="text-lg text-slate-500 font-medium ml-2">/ project</span>
-                    </div>
-
-                    <ul class="space-y-5 mb-10">
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                            <span class="text-slate-700 font-medium">Custom qualification chatbot</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                            <span class="text-slate-700 font-medium">Automated lead-capture</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                            <span class="text-slate-700 font-medium">Instant owner alerts</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                            <span class="text-slate-700 font-medium">Full system hand-off</span>
-                        </li>
-                    </ul>
-                    
-                    <!-- Updated to trigger Modal -->
-                    <button class="open-modal-btn block text-center w-full py-4 rounded-xl border-2 border-slate-200 text-slate-900 hover:border-blue-600 hover:text-blue-600 font-bold text-lg transition-all focus:outline-none">
-                        Discuss on Call
-                    </button>
-                </div>
-
-                <!-- Tier 2 (Most Popular) -->
-                <div class="bg-slate-900 p-10 rounded-[2rem] border border-slate-800 shadow-2xl relative transform md:-translate-y-4">
-                    <div class="absolute top-0 right-10 transform -translate-y-1/2">
-                        <span class="bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg shadow-blue-600/30">
-                            Most Popular
+            <div class="max-w-xl mx-auto">
+                <div class="bg-white p-8 sm:p-12 rounded-[2rem] border border-slate-200 shadow-xl relative">
+                    <div class="text-center pb-8 border-b border-slate-100">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                            Unlimited Support & Edits
                         </span>
-                    </div>
-                  
-                    <h3 class="text-2xl font-bold text-white mb-3">The Complete Growth Engine</h3>
-                    <p class="text-slate-400 mb-8 leading-relaxed">The ultimate end-to-end system. Complete omni-channel automation and dedicated target traffic.</p>
-                  
-                    <div class="mb-8">
-                        <span class="text-5xl font-extrabold text-white">Custom</span>
-                        <span class="text-lg text-slate-400 font-medium ml-2">/ month</span>
+                        
+                        <div class="mt-6">
+                            <span class="text-5xl font-extrabold text-slate-900">$149</span>
+                            <span class="text-lg text-slate-500 font-medium ml-1">/ month</span>
+                        </div>
+                        <p class="text-slate-500 mt-2">Absolutely zero setup costs. Pay only after you approve the chatbot build.</p>
                     </div>
 
-                    <ul class="space-y-5 mb-10">
+                    <ul class="space-y-4 my-8">
                         <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                            <span class="text-slate-300 font-medium">Client acquisition campaigns</span>
+                            <svg class="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-700 font-medium">Fully trained custom chatbot build</span>
                         </li>
                         <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                            <span class="text-slate-300 font-medium">Omni-channel messaging</span>
+                            <svg class="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-700 font-medium">Unlimited visitor conversations</span>
                         </li>
                         <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                            <span class="text-slate-300 font-medium">Centralized sales pipeline mapping</span>
+                            <svg class="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-700 font-medium">Complete calendar/booking link sync</span>
                         </li>
                         <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                            <span class="text-slate-300 font-medium">Automated 24/48-hour follow-up sequences</span>
+                            <svg class="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-700 font-medium">Continuous model updates (as your website changes)</span>
                         </li>
                         <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-blue-400 mr-3 flex-shrink-0"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
-                            <span class="text-slate-300 font-medium">Monthly performance optimization</span>
+                            <svg class="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-700 font-medium">Fast, priority support on WhatsApp</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            <span class="text-slate-700 font-medium">Cancel any time. No long-term lock-ins</span>
                         </li>
                     </ul>
                     
-                    <!-- Updated to trigger Modal -->
-                    <button class="open-modal-btn block text-center w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all shadow-lg shadow-blue-600/25 focus:outline-none">
-                        Book Strategy Call
-                    </button>
+                    <a href="https://wa.me/16503795054?text=Hi!%20I'm%20ready%20to%20get%20a%20custom%20AI%20chatbot%20built%20for%20my%20website%20using%20the%20$149/mo%20Build-First%20plan." 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="block text-center w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg transition-all shadow-lg shadow-blue-600/20">
+                        Start Your Chatbot Build
+                    </a>
                 </div>
-
             </div>
         </div>
     </section>
@@ -309,70 +283,58 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight mb-6">Frequently Asked Questions</h2>
-                <p class="text-lg text-slate-600">Clear answers about how our AI systems drive high-ticket conversions.</p>
+                <p class="text-lg text-slate-600">Answers to how our custom-built receptionists operate on your website.</p>
             </div>
 
             <div class="bg-white rounded-2xl border border-slate-200 p-4 sm:p-8 shadow-sm">
                 <!-- FAQ Item 1 -->
                 <div class="border-b border-slate-200">
                     <button class="faq-btn w-full py-6 flex justify-between items-center text-left focus:outline-none group">
-                        <span class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">How does the client acquisition traffic connect to the qualification chatbots?</span>
+                        <span class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">Do I need to program the chatbot myself?</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-5 h-5 text-slate-500 transition-transform duration-300"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
                     <div class="faq-content overflow-hidden pr-8 pb-6 text-slate-600 leading-relaxed">
-                        We direct high-intent traffic from our campaigns directly into dedicated landing pages or messaging links. The moment a prospect clicks, the AI chatbot instantly engages them, ensuring zero delay between their initial interest and our rigorous qualification process.
+                        Never. We handle 100% of the work. You simply send us your business website or informational docs, and we deploy a customized chatbot.
                     </div>
                 </div>
 
                 <!-- FAQ Item 2 -->
                 <div class="border-b border-slate-200">
                     <button class="faq-btn w-full py-6 flex justify-between items-center text-left focus:outline-none group">
-                        <span class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">How are my leads securely stored and managed?</span>
+                        <span class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">How does the "Build First" policy work?</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-5 h-5 text-slate-500 transition-transform duration-300"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
                     <div class="faq-content overflow-hidden pr-8 pb-6 text-slate-600 leading-relaxed">
-                        All captured data is instantly encrypted and synced directly to your centralized CRM. We map the data fields exactly to your pipeline, ensuring your team has secure, organized access to every qualified prospect in real-time.
+                        We don't ask for payment beforehand. We analyze your website, construct the custom chatbot, and show you a working demonstration. You can play with it, test its responses, and subscribe to the $149/mo plan only if you are completely happy.
                     </div>
                 </div>
 
                 <!-- FAQ Item 3 -->
                 <div class="border-b border-slate-200">
                     <button class="faq-btn w-full py-6 flex justify-between items-center text-left focus:outline-none group">
-                        <span class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">How do the automated follow-ups increase conversions?</span>
+                        <span class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">How do I physically put the chatbot on my site?</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-5 h-5 text-slate-500 transition-transform duration-300"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
                     <div class="faq-content overflow-hidden pr-8 pb-6 text-slate-600 leading-relaxed">
-                        Many high-ticket prospects get distracted before booking a call. Our safeguard sequences use natural, conversational multi-channel text and email nudges 24 to 48 hours later to re-engage them, recovering lost leads and pushing them back to your calendar.
+                        We provide you a single line of script code. You (or we) can paste this script right into your website header (whether you use WordPress, Squarespace, Wix, Shopify, or HTML). It is lightweight and will not slow your page down.
                     </div>
                 </div>
 
                 <!-- FAQ Item 4 -->
                 <div class="border-b border-slate-200">
                     <button class="faq-btn w-full py-6 flex justify-between items-center text-left focus:outline-none group">
-                        <span class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">How customizable is the AI to our specific sales process?</span>
+                        <span class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">What happens when my service details change?</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-5 h-5 text-slate-500 transition-transform duration-300"><path d="m6 9 6 6 6-6"/></svg>
                     </button>
                     <div class="faq-content overflow-hidden pr-8 pb-6 text-slate-600 leading-relaxed">
-                        Every system we build is entirely custom-mapped to your business. During the pipeline analysis, we learn your exact qualifying questions and CRM structure so the AI behaves exactly like your best sales rep.
+                        Just drop us a quick text on WhatsApp. Your monthly hosting subscription includes unlimited free knowledge updates, support, and modifications done instantly by our team.
                     </div>
                 </div>
-
-                <!-- FAQ Item 5 -->
-                <div class="border-b border-slate-200">
-                    <button class="faq-btn w-full py-6 flex justify-between items-center text-left focus:outline-none group">
-                        <span class="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">Can the AI handle complex questions about my specific local services?</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon w-5 h-5 text-slate-500 transition-transform duration-300"><path d="m6 9 6 6 6-6"/></svg>
-                    </button>
-                    <div class="faq-content overflow-hidden pr-8 pb-6 text-slate-600 leading-relaxed">
-                        Absolutely. We deeply train the AI on your specific business knowledge, service limitations, and pricing structures so it handles inquiries accurately and professionally, exactly like your best sales rep.
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- FOOTER & CONTACT -->
+    <!-- FOOTER -->
     <footer id="contact" class="bg-slate-950 pt-20 pb-10 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
@@ -383,31 +345,35 @@
                     </span>
                     <p class="text-slate-400 mb-2 font-medium">Founded by Zeeshan Bangash</p>
                     <p class="text-slate-500 max-w-sm leading-relaxed mb-6">
-                        Professional AI automation agency helping businesses capture more leads, speed up response times, and reduce manual customer support operations.
+                        Making business automation incredibly simple. We deploy beautifully branded, robust website AI receptionists that handle operations 24/7.
                     </p>
-                    <a href="https://wa.me/message/QQ4BLPNIUMCIO1" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-colors shadow-lg shadow-blue-600/20">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Start a Conversation
+                    <a href="https://wa.me/16503795054?text=Hi!%20I'm%20visiting%20your%20site%20and%20want%20to%20learn%20more%20about%20your%20AI%20chatbot%20setup." 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="inline-flex items-center px-6 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold transition-colors shadow-lg shadow-blue-600/20">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 mr-2"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg> Send Us a Message
                     </a>
                 </div>
 
                 <div>
                     <h4 class="text-white font-bold mb-6">Quick Links</h4>
                     <ul class="space-y-4">
-                        <li><a href="#services" class="text-slate-400 hover:text-blue-400 transition-colors">Our Services</a></li>
-                        <li><a href="#how-it-works" class="text-slate-400 hover:text-blue-400 transition-colors">How it Works</a></li>
+                        <li><a href="#features" class="text-slate-400 hover:text-blue-400 transition-colors">What It Does</a></li>
+                        <li><a href="#how-it-works" class="text-slate-400 hover:text-blue-400 transition-colors">Our Process</a></li>
+                        <li><a href="#pricing" class="text-slate-400 hover:text-blue-400 transition-colors">Pricing Plan</a></li>
                         <li><a href="#faqs" class="text-slate-400 hover:text-blue-400 transition-colors">FAQs</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="text-white font-bold mb-6">Get in Touch</h4>
+                    <h4 class="text-white font-bold mb-6">Contact Channels</h4>
                     <ul class="space-y-5">
                         <li>
-                            <a href="https://wa.me/message/QQ4BLPNIUMCIO1" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-green-400 transition-colors flex items-center group">
+                            <a href="https://wa.me/16503795054" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-green-400 transition-colors flex items-center group">
                                 <span class="bg-slate-900 p-2 rounded-md mr-3 group-hover:bg-slate-800 transition-colors">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
                                 </span>
-                                WhatsApp
+                                WhatsApp Line
                             </a>
                         </li>
                         <li>
@@ -415,7 +381,7 @@
                                 <span class="bg-slate-900 p-2 rounded-md mr-3 group-hover:bg-slate-800 transition-colors">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                                 </span>
-                                Email Us
+                                Email Direct
                             </a>
                         </li>
                         <li>
@@ -423,7 +389,7 @@
                                 <span class="bg-slate-900 p-2 rounded-md mr-3 group-hover:bg-slate-800 transition-colors">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                                 </span>
-                                LinkedIn Profile
+                                LinkedIn Connection
                             </a>
                         </li>
                     </ul>
@@ -436,34 +402,15 @@
                     &copy; <script>document.write(new Date().getFullYear())</script> D and D web lab. All rights reserved.
                 </p>
                 <p class="text-slate-600 text-sm mt-4 md:mt-0 font-medium">
-                    Automating Business Operations
+                    Automating Customer Intake Safely
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- MODAL OVERLAY -->
-    <div id="booking-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
-        <!-- MODAL CONTAINER (Added scroll fix for mobile) -->
-        <div id="booking-modal-content" class="bg-white w-full max-w-3xl max-h-[90vh] md:max-h-[85vh] m-4 rounded-2xl shadow-2xl relative flex flex-col transform scale-95 transition-transform duration-300">
-            
-            <!-- CLOSE BUTTON -->
-            <button id="close-modal-btn" class="absolute top-4 right-4 z-10 p-2 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-full transition-colors focus:outline-none shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-            </button>
-            
-            <!-- GOOGLE FORM IFRAME (Added Loading Lazy) -->
-            <div class="w-full h-full pt-14 pb-4 px-2 rounded-2xl overflow-y-auto modal-scrollable-area bg-slate-50">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeny0U788aZsWQeSHTzOjizr172O0sY8Y-MzKbjuAjee58o3g/viewform?embedded=true" class="w-full h-full min-h-[500px] border-0 rounded-xl" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Loading…</iframe>
-            </div>
-        </div>
-    </div>
-
     <!-- INTERACTIVE JAVASCRIPT -->
     <script>
-        // -----------------------
-        // Mobile Menu Logic
-        // -----------------------
+        // Mobile Menu Toggle
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const iconMenu = document.getElementById('icon-menu');
@@ -484,9 +431,7 @@
             });
         });
 
-        // -----------------------
-        // FAQ Accordion Logic
-        // -----------------------
+        // FAQ Accordion Toggle
         const faqBtns = document.querySelectorAll('.faq-btn');
 
         faqBtns.forEach(btn => {
@@ -495,91 +440,17 @@
                 const icon = btn.querySelector('.faq-icon');
                 const isOpen = content.classList.contains('open');
 
-                // Close all
+                // Close all other open items
                 document.querySelectorAll('.faq-content').forEach(c => c.classList.remove('open'));
                 document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
 
-                // Open clicked
+                // Toggle currently clicked item
                 if (!isOpen) {
                     content.classList.add('open');
                     icon.style.transform = 'rotate(180deg)';
                 }
             });
         });
-
-        // -----------------------
-        // Google Form Modal Logic
-        // -----------------------
-        const modal = document.getElementById('booking-modal');
-        const modalContent = document.getElementById('booking-modal-content');
-        const openModalBtns = document.querySelectorAll('.open-modal-btn');
-        const closeModalBtn = document.getElementById('close-modal-btn');
-
-        function openModal() {
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            modalContent.classList.remove('scale-95');
-            document.body.style.overflow = 'hidden'; // Prevents background scrolling
-            
-            // Close mobile menu if it's open
-            if (!mobileMenu.classList.contains('hidden')) toggleMenu();
-        }
-
-        function closeModal() {
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            modalContent.classList.add('scale-95');
-            document.body.style.overflow = ''; // Restores background scrolling
-        }
-
-        // Attach click events
-        openModalBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                openModal();
-            });
-        });
-
-        // Close via Close Button
-        closeModalBtn.addEventListener('click', closeModal);
-
-        // Close when clicking outside modal
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // Fail-safe: Restore scrolling if escape key is pressed
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !modal.classList.contains('pointer-events-none')) {
-                closeModal();
-            }
-        });
-    </script>
-
-    <!-- VOICEFLOW AI CHATBOT (Deferred to prevent page freezing) -->
-    <script type="text/javascript">
-      window.addEventListener('load', function() {
-          setTimeout(function() {
-              (function(d, t) {
-                  var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-                  v.onload = function() {
-                    window.voiceflow.chat.load({
-                      verify: { projectID: '6a1318d682a9759a033d7b1f' },
-                      url: 'https://general-runtime.voiceflow.com',
-                      voice: {
-                        url: "https://runtime-api.voiceflow.com"
-                      }
-                    });
-                  }
-                  v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-              })(document, 'script');
-          }, 500); // 500ms delay ensures your site paints visually before loading the heavy chat widget
-      });
     </script>
 </body>
 </html>
-<script 
-  src="https://omnidesk-backend-production-27fa.up.railway.app/widget.js" 
-  data-email="zeeshaankhaan09@gmail.com" 
-  defer>
-</script>
